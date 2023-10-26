@@ -3,9 +3,17 @@
 
 
 ## Catalogue Jupyter
-Ce projet vise à fournir une multitude de démonstrations python utiles pour les enseignants de science de la nature.
+Ce projet vise à fournir une multitude de d�monstrations python utiles pour les enseignants de science de la nature.
+
 ## Installation
-Vous aurez besoin d'utiliser le logiciel gratuit 'Jupyter' pour consulter les démontrations. 
+Vous aurez besoin d'utiliser le logiciel gratuit 'Jupyter' pour consulter les d�montrations. 
 Celles-ci sont aussi disponibles sous forme de fichier python (.py) directement dans le dossier 'scripts'.
+
 ## Utilisation
+
+
+## Paired notebooks
+```
+jupytext --set-formats ipynb,scripts//py:percent --sync filename.ipynb
+```
 
