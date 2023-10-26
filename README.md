@@ -12,7 +12,11 @@ Celles-ci sont aussi disponibles sous forme de fichier python (.py) directement 
 ## Utilisation
 
 
-## Paired notebooks
+## Notes aux développeurs:
+
+# Paired notebooks
+
+Afin de lier le fichier filename.ipynb à un fichier filename.py (de type percent) dans le sous-répertoire scripts
 ```
 jupytext --set-formats ipynb,scripts//py:percent --sync filename.ipynb
 ```
