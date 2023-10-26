@@ -2,3 +2,6 @@
 .ipynb_checkpoints
 venv/
 .venv
+introduction_python/
+exemples_jupyterbook/
+note.txt
