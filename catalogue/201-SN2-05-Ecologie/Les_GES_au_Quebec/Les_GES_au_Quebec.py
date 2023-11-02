@@ -25,39 +25,37 @@
 # %% [markdown]
 # Les données de l'inventaire québécois des émissions de gaz à effet de serre, sont disponibles chez [Données Québec](https://www.donneesquebec.ca/recherche/dataset/inventaire-quebecois-des-emissions-de-gaz-a-effet-de-serre "https://www.donneesquebec.ca/recherche/dataset/inventaire-quebecois-des-emissions-de-gaz-a-effet-de-serre"):
 #
-# > L’inventaire des émissions de gaz à effet de serre (GES) produits par l’activité humaine au Québec est tenu à jour annuellement depuis 1990 
-# par le ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. Cet inventaire est établi à partir de données recueillies auprès d’entreprises et d’institutions et se base sur des données obtenues principalement de Statistique Canada, d’Environnement et Changement climatique Canada (ECCC) et de ministères et organismes du Québec. 
+# > "L’inventaire des émissions de gaz à effet de serre (GES) produits par l’activité humaine au Québec est tenu à jour annuellement depuis 1990 
+# par le ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. Cet inventaire est établi à partir de données recueillies auprès d’entreprises et d’institutions et se base sur des données obtenues principalement de Statistique Canada, d’Environnement et Changement climatique Canada (ECCC) et de ministères et organismes du Québec." 
 #
-# Dernière modification du jeux de données de ce notebook : 2022-12-21 
+# Dernière modification du jeux de données pour ce notebook : 2022-12-21 
 
 # %% [markdown]
 # ---
-# ## Objectif:
+# # Objectifs:
 #
 # L'objectif de ce notebook est d'utiliser la méthode `groupby`
 #  relative aux dataframes afin d'obtenir le total des GES émis par secteur d'activité.
 
 # %% [markdown]
 # ---
-# ## Importation des données
+# # Importation des données
 
 # %% [markdown]
-# Afin de lire et d'explorer les données, nous utilisons la librairie pandas avec toutes les fonctionnalités des Dataframes.
+# Afin de lire et d'explorer les données, nous utilisons la librairie pandas avec toutes les fonctionnalités des Dataframes. 
 
 # %%
+# Initialisation de la librairie Pandas.
 import pandas as pd
 
-# %% [markdown]
-# Le fichier csv (coma-separated-value) se nomme "inventaire-ges.csv" 
+# Importation des données. Le fichier csv (coma-separated-value) se nomme "inventaire-ges.csv" 
 # et les données sont séparées par des points-virgules (;).
-# %%
 df = pd.read_csv('./fichiers_input/inventaire-ges.csv',sep = ';')
 df
 
-
 # %% [markdown]
 # ---
-# ## Informations de base sur le jeu de données:
+# # Informations de base sur le jeu de données:
 #
 # Pour bien comprendre les données dans un DataFrame pandas, vous devez examiner plusieurs aspects clés pour en tirer le meilleur parti. Voici une liste d'informations de base à prendre en compte :
 #
@@ -83,8 +81,6 @@ df
 # df.isna().sum()
 # ```
 #
-# 5. Les statistiques descriptives :
-#    - Utilisez `describe()` pour obtenir des statistiques de base sur les données numériques, telles que la moyenne, l'écart-type, les quartiles, etc.
 #   
 #
 #
@@ -99,7 +95,7 @@ df.shape
 # Le nom des colonnes. Sous forme d'une array numpy. 
 df.columns
 # %%
-# Le nom des colonnes. Sous forme d'une liste normale.
+# Le nom des colonnes, sous forme d'une liste normale.
 df.columns.tolist()
 
 # %%
@@ -127,11 +123,21 @@ df['Sous-secteur'].unique().tolist();
 df['Categorie'].unique().tolist();
 
 # %%
+# Élements absents
 df.isna().sum()
+
+# %%
+df.isnull().sum()
 
 # %% [markdown]
 # ---
-# ## Analyse 1: obtention du total par année:
+# # Constructions de la nouvelle dataframe: 
+#
+# Les étapes pour construire df_secteurs_total sont:
+
+# %% [markdown]
+# ---
+# ## Construction 1: obtention du total par année:
 
 # %%
 df[['Annee','Emissions(t_eq_CO2)']]
@@ -153,28 +159,28 @@ df_total = df_total.rename(columns={"Emissions(t_eq_CO2)": "Emissions(t_eq_CO2)-
 df_total.describe()
 
 # %%
-df_total.plot()
+# df_total.plot()
 
 # %% [markdown]
 # ---
-# ## Analyse 2: obtention du total par année pour le secteur 'Transports':
+# ## Construction 2: obtention du total par année pour le secteur 'Transports':
 
 # %%
 #Pour les transports seulement
 df_transports = df[df['Secteur']=='Transports']
 df_transports_total = df_transports[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
 df_transports_total = df_transports_total.rename(columns={"Emissions(t_eq_CO2)": "Emissions(t_eq_CO2)-Transports"})
-df_transports_total
+df_transports_total;
 # %%
-df_final = pd.merge(df_total, df_transports_total, on=["Annee"])
-df_final.plot()
+df_merge = pd.merge(df_total, df_transports_total, on=["Annee"])
+# df_merge
 # %%
-# df3 = df_total2.merge(df_total2,on=["Annee"]).merge(df_total2,on=["Annee"])
-# df3
+df_merge = df_total.merge(df_transports_total,on=["Annee"])
+# df_merge
 
 # %% [markdown]
 # ---
-# ## Analyse 3: obtention du total par année pour tous les secteurs:
+# ## Construction 3: obtention du total par année pour tous les secteurs:
 
 # %%
 secteurs
@@ -192,28 +198,23 @@ for secteur in secteurs:
 df_secteurs_total  
 
 # %%
-df_secteurs_total.plot()
+# df_secteurs_total.plot()
 
 # %% [markdown]
 # ---
-# ## Exportation de la nouvelle dataframe:
+# # Exportation de la nouvelle dataframe:
 # %%
 df_secteurs_total.to_excel("./fichiers_output/df_secteurs_total.xlsx",sheet_name='Emissions(t_eq_CO2) par secteur') 
 # %%
-pd.read_excel("./fichiers_output/df_secteurs_total.xlsx") 
-# %%
-
-
+df_secteurs_total.to_csv("./fichiers_output/df_secteurs_total.csv") 
 
 
 # %% [markdown]
-# Texte explicatif image
-# ![title0](img/presentation.png)
+#
 
 # %% [markdown]
-# Le lien est le suivant [example.com](https://example.com/ "https://example.com/").
+#
 
 # %%
-# input 1
 
 
