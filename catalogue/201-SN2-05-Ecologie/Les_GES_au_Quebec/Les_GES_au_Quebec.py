@@ -34,7 +34,8 @@
 # ---
 # ## Objectif:
 #
-# L'objectif de ce notebook est d'utiliser la fonction groupby relative aux dataframes afin d'obtenir le total des GES émis par secteur d'activité.
+# L'objectif de ce notebook est d'utiliser la méthode `groupby`
+#  relative aux dataframes afin d'obtenir le total des GES émis par secteur d'activité.
 
 # %% [markdown]
 # ---
@@ -116,7 +117,8 @@ df['Annee'];
 
 # %%
 # Élements uniques de la colonne Secteur. Sous forme d'une liste normale.
-df['Secteur'].unique().tolist()
+secteurs = df['Secteur'].unique().tolist()
+secteurs
 # %%
 # Élements uniques de la colonne Sous-secteur. Sous forme d'une liste normale.
 df['Sous-secteur'].unique().tolist();
@@ -129,15 +131,7 @@ df.isna().sum()
 
 # %% [markdown]
 # ---
-# ## Sélection du secteur 'Transports'
-
-# %%
-df_transports = df[df['Secteur']=='Transports']
-df_transports
-
-# %% [markdown]
-# ---
-# ## Obtention du total par année:
+# ## Analyse 1: obtention du total par année:
 
 # %%
 df[['Annee','Emissions(t_eq_CO2)']]
@@ -146,30 +140,67 @@ df[['Annee','Emissions(t_eq_CO2)']]
 df[['Annee','Emissions(t_eq_CO2)']].groupby('Annee')
 
 # %%
-df_total1 = df[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
-df_total1;
+df_total = df[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
+df_total;
 
 # %%
-df_total1.columns
+df_total.columns
 
 # %%
-df_total1.plot()
+df_total = df_total.rename(columns={"Emissions(t_eq_CO2)": "Emissions(t_eq_CO2)-Total"})
+
+# %%
+df_total.describe()
+
+# %%
+df_total.plot()
+
+# %% [markdown]
+# ---
+# ## Analyse 2: obtention du total par année pour le secteur 'Transports':
 
 # %%
 #Pour les transports seulement
 df_transports = df[df['Secteur']=='Transports']
-df_total2 = df_transports[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
-df_total2;
+df_transports_total = df_transports[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
+df_transports_total = df_transports_total.rename(columns={"Emissions(t_eq_CO2)": "Emissions(t_eq_CO2)-Transports"})
+df_transports_total
 # %%
-result = pd.merge(df_total1, df_total2,on=["Annee"])
-result;
+df_final = pd.merge(df_total, df_transports_total, on=["Annee"])
+df_final.plot()
 # %%
-result = pd.merge(df_total1, df_total2, on=["Annee"])
-result.plot()
+# df3 = df_total2.merge(df_total2,on=["Annee"]).merge(df_total2,on=["Annee"])
+# df3
+
+# %% [markdown]
+# ---
+# ## Analyse 3: obtention du total par année pour tous les secteurs:
+
 # %%
+secteurs
+
 # %%
+# Initialisation du DataFrame résultant avec le premier DataFrame
+df_secteurs_total = df_total
+
+for secteur in secteurs:
+    df_secteur = df[df['Secteur']==secteur]
+    df_secteur_total = df_secteur[['Annee','Emissions(t_eq_CO2)']].groupby('Annee').sum()
+    df_secteur_total = df_secteur_total.rename(columns={"Emissions(t_eq_CO2)": f'Emissions(t_eq_CO2)-{secteur}'})
+    df_secteurs_total = df_secteurs_total.merge(df_secteur_total, on=["Annee"])
+
+df_secteurs_total  
+
 # %%
+df_secteurs_total.plot()
+
+# %% [markdown]
+# ---
+# ## Exportation de la nouvelle dataframe:
 # %%
+df_secteurs_total.to_excel("./fichiers_output/df_secteurs_total.xlsx",sheet_name='Emissions(t_eq_CO2) par secteur') 
+# %%
+pd.read_excel("./fichiers_output/df_secteurs_total.xlsx") 
 # %%
 
 
