@@ -14,33 +14,119 @@
 # ---
 
 # %% [markdown]
-# # La dynamique des populations BLA
+# # La dynamique des populations
 # ---
 
-# %%
-import numpy as np
-import matplotlib.pyplot as plt
+# %% [markdown]
+# ## Mise en contexte:
+#
+# ### La dynamique des populations:
+#
+# Pour prédire et comprendre la dynamique des populations, des modèles mathématiques tels que les équations différentielles sont souvent utilisés. Celles-ce dépendent de nombreux facteurs et sont extrêmement complexes à modéliser. 
+#
+# Cela dit, certaines dynamiques "simples" peuvent être modélisées par des équations différentielles ordinaires (EDO). 
+#
+# - L'équation logistique de Verhulst:
+#   bla bla
+# - Les équations de Lotka-Volterra.
+#   bla bla
+#
+#
+# ### La méthode d'Euler:
+# La méthode d'Euler est une technique numérique couramment utilisée pour résoudre des équations différentielles ordinaires (EDO). 
+#
+# Voici un résumé de la méthode d'Euler :
+#
+# - Discrétisation du temps : La première étape de la méthode d'Euler consiste à diviser l'intervalle de temps en petits pas, ce qui crée une discrétisation du temps. Plus l'intervalle de temps est petit, plus l'approximation sera précise.
+#
+# - Condition initiale : Vous devez connaître la valeur initiale de la variable dépendante à un certain moment, c'est-à-dire la condition initiale. Cela sert de point de départ pour résoudre l'EDO.
+#
+# - Approximation de la dérivée : À chaque pas de temps, vous approximez la dérivée de la variable dépendante en utilisant la valeur actuelle de la variable et l'EDO. La dérivée approximée est calculée en multipliant le taux de variation local par la taille du pas de temps.
+#
+# - Mise à jour de la variable dépendante : La nouvelle valeur de la variable dépendante est calculée en ajoutant la dérivée approximée à la valeur actuelle de la variable. Cela correspond à un pas de temps en avant.
+#
+# - Répétition : Les étapes 3 et 4 sont répétées pour chaque pas de temps jusqu'à ce que la variable atteigne la valeur finale souhaitée ou jusqu'à ce que le processus atteigne un certain nombre prédéfini d'itérations. C'est à cette étape que la technique de la boucle `for` est utilisé.
 
+# %% [markdown]
+# ## Objectifs
+#
+# - Utiliser une boucle `for` pour résoudre l'équation logistique de Verhulst avec la méthode d'Euler.
+#
+# - Utiliser une boucle `for` pour résoudre les équations de Lotka-Volterra avec la méthode d'Euler.
 
 # %% [markdown]
 # # L'équation logistique de Verhulst
+# %% [markdown]
+# L'équation logistique de Verhulst est un modèle mathématique largement utilisé pour décrire la croissance d'une population en fonction du temps, en prenant en compte les limitations environnementales. Cette équation tire son nom du mathématicien belge Pierre-François Verhulst, qui l'a développée au XIXe siècle pour modéliser la croissance de populations animales, mais elle est également couramment appliquée à d'autres domaines, notamment en écologie et en économie.
+#
+# L'équation logistique de Verhulst peut être formulée comme suit :
+#
+# $$
+# \frac{dN}{dt} = r \cdot N \cdot \left(1 - \frac{N}{K}\right)
+# $$
+# où :
+# - $ \frac{dN}{dt} $ représente le taux de croissance de la population par rapport au temps ($ t $).
+# - $ N $ est la taille de la population à un moment donné.
+# - $ r $ est le taux de croissance intrinsèque de la population, qui dépend des conditions environnementales et des caractéristiques de l'organisme.
+# - $ K $ est la capacité de charge de l'environnement, c'est-à-dire la taille maximale que la population peut atteindre en fonction des ressources disponibles.
+#
+# Cette équation est souvent utilisée pour modéliser des situations où la croissance d'une population est limitée par des facteurs tels que la disponibilité de nourriture, d'espace ou d'autres ressources. Au fur et à mesure que la population ($ N $) augmente, le terme $ \left(1 - \frac{N}{K}\right) $ reflète la réduction de la croissance due à la saturation des ressources disponibles.
+#
+# Le modèle de Verhulst permet de comprendre comment une population peut atteindre un équilibre où la croissance cesse, car elle atteint sa capacité de charge. Ce modèle est également utile pour prédire les fluctuations de population dans des conditions environnementales changeantes.
+#
+# La méthode d'Euler utilise une logique itérative:
+#
+#    - À partir de $t = 0$, on répète les étapes jusqu'à ce que $t$ atteigne la valeur finale $T$:
+#    - Calcul de la dérivée approximative $\frac{dN}{dt}$ pour la $n$-ième itération:
+#      $$
+#      \frac{dN}{dt} \approx r \cdot N_n \cdot \left(1 - \frac {N_n}{K}\right)
+#      $$
+#    - Mise à jour de $N$ en vue de la $n+1$-ième itération :
+#      $$
+#      N_{n+1} = N_n + \frac{dN}{dt} \cdot \Delta t
+#      $$
+#    - Incrémentation du temps : $t_{n+1} = t_n + \Delta t$.
+#
+#
+#
+#
+
 # %%
+# Initialisation des modules nécessaires:
+import numpy as np
+import matplotlib.pyplot as plt
+
+# %%
+# Méthode d'Euler: **Initialisation des variables** :
+
 # Paramètres de l'équation logistique de Verhulst
 r = 0.1  # Taux de croissance intrinsèque
 K = 1000  # Capacité de charge de l'environnement
-dt = 0.1  # Intervalle de temps
-T = 200  # Durée de la simulation
+dt = .1  # Intervalle de temps
+T = 20  # Durée de la simulation
 
 # %%
-# Initialisation des listes pour stocker les données
-time_points = [0]
+# Méthode d'Euler: **Création des listes**
+
+# Initialisation des listes pour stocker les données à chaque itération:
+time_points = [0]  # temps initial
 population = [10]  # Population initiale
 
 # %%
-# Boucle for pour résoudre l'équation de Verhulst avec la méthode d'Euler
+# np.arange(dt, T + dt, dt)
+
+# %%
+# Méthode d'Euler: **Itération**
+
+# Boucle for pour résoudre l'équation de Verhulst: 
+# "for t" : C'est une boucle "for" en Python, qui itère sur une variable "t". À chaque itération, "t" prendra une nouvelle valeur.
+# "in" : C'est le mot-clé "in" qui indique que nous allons itérer sur une séquence de valeurs.
+# "np.arange(dt, T + dt, dt)" : C'est la séquence de valeurs sur laquelle nous itérons. "np.arange" crée un tableau de valeurs espacées de manière régulière. 
+#  Dans ce cas, il génère une séquence de valeurs commençant à "dt" (la première valeur), se terminant à "T + dt" (la dernière valeur), avec un pas de "dt" (l'espacement entre les valeurs).
 for t in np.arange(dt, T + dt, dt):
-    dN = r * population[-1] * (1 - population[-1] / K)
-    N = population[-1] + dN * dt
+    # dNdt correspond au taux de variation.  
+    dN_dt = r * population[-1] * (1 - population[-1] / K)
+    N = population[-1] + dN_dt * dt
     time_points.append(t)
     population.append(N)
 
