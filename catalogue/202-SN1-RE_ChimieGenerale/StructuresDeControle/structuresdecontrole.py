@@ -48,7 +48,6 @@
 
 # %% [markdown]
 # Entrez l'altitude en mètres.  
-# Ici, on utilise la fonction **Float()** pour transformer le texte entré par l'usager en donnée numérique
 
 # %%
 # Point d'ébullition de l'eau au niveau de la mer (en degrés Celsius)
