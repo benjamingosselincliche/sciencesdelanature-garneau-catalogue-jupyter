@@ -14,28 +14,26 @@
 # ---
 
 # %% [markdown]
-# Démonstration sur les structures de contrôle avec Python
+# # Démonstration sur les structures de contrôle avec Python  : 
+# # Point d'ébullition de l'eau en fonction de l'altitude
 # ---
-#
-#
+# <div style="text-align: center; margin-top: 20px;">
+#     <img src="./img/banner.webp" alt="Drawing" style="width: 300px;"/>
+# </div>
+
 
 # %% [markdown]
-# ## Objectifs:
+# ---
+# # Objectifs:
 # - Utiliser les structures de contrôle `if` `else` `elif`
 # - Utiliser les opérateurs logiques booléens `and` `or` `True` `False` `not`
 # - Utiliser les opérateurs de comparaison `>` `<` `<=` `>=` `==`  
 #  Ce, afin de créer des programmes qui s'adaptent aux données et instructions fournies.
-#
-# ---
-# Point d'ébullition de l'eau en fonction de l'altitude
-# <div style="text-align: center; margin-top: 20px;">
-#     <img src="./img/banner.webp" alt="Drawing" style="width: 300px;"/>
-# </div>
-# ---
+
 
 # %% [markdown]
 # ---
-# ### Opérateurs de comparaison (`>` `<` `<=` `>=` `==`)
+# # Opérateurs de comparaison (`>` `<` `<=` `>=` `==`)
 # Vous pouvez utiliser les opérateurs ci-haut pour comparer des valeurs dans des conditions.
 # - `>` : Plus grand que
 # - `<` : Plus petit que
@@ -44,7 +42,8 @@
 # - `==` : Égal à
 
 # %% [markdown]
-# ### Structures de contrôle (`if` `else` `elif`)
+# ---
+# # Structures de contrôle (`if` `else` `elif`)
 
 # %% [markdown]
 # Entrez l'altitude en mètres.  
@@ -92,8 +91,8 @@ else:
     print(f"À une altitude de {altitude} mètres, l'eau bout à {point_ebullition:.2f}°C.")
 
 # %% [markdown]
-# ### Opérateurs booléens (`and` `or` `True` `False` `not`)
-
+# ---
+# # Opérateurs booléens (`and` `or` `True` `False` `not`)
 # %%
 # Supposons que nous avons des conditions spéciales pour des expériences scientifiques
 temperature_ideale = 97  # Température idéale pour une expérience
