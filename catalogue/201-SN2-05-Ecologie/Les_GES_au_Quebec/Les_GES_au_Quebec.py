@@ -92,18 +92,22 @@ df.shape
 
 
 # %%
-# Le nom des colonnes. Sous forme d'une array numpy. 
+# Le nom des colonnes, sous forme d'une array numpy. 
+
 df.columns
 # %%
 # Le nom des colonnes, sous forme d'une liste normale.
+
 df.columns.tolist()
 
 # %%
 # Le types de variables dans chaque colonne: 
+
 df.dtypes
 
 # %%
 # L'index du dataframe: 
+
 df.index
 
 # %%
@@ -159,7 +163,7 @@ df_total = df_total.rename(columns={"Emissions(t_eq_CO2)": "Emissions(t_eq_CO2)-
 df_total.describe()
 
 # %%
-# df_total.plot()
+df_total.plot()
 
 # %% [markdown]
 # ---
@@ -198,7 +202,7 @@ for secteur in secteurs:
 df_secteurs_total  
 
 # %%
-# df_secteurs_total.plot()
+df_secteurs_total.plot()
 
 # %% [markdown]
 # ---

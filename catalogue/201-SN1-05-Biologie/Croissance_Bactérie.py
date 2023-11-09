@@ -22,7 +22,7 @@
 #
 # ### La dynamique des populations:
 #
-# Pour prédire et comprendre la dynamique des populations, des modèles mathématiques tels que les équations différentielles sont souvent utilisés. Celles-ce dépendent de nombreux facteurs et sont extrêmement complexes à modéliser. 
+# Pour prédire et comprendre la dynamique des populations, des modèles mathématiques tels que les équations différentielles sont souvent utilisés. En général, celles-ce dépendent de nombreux facteurs et sont extrêmement complexes à modéliser. 
 #
 # Cela dit, certaines dynamiques "simples" peuvent être modélisées par des équations différentielles ordinaires (EDO). 
 #
@@ -103,7 +103,7 @@ import matplotlib.pyplot as plt
 r = 0.1  # Taux de croissance intrinsèque
 K = 1000  # Capacité de charge de l'environnement
 dt = .1  # Intervalle de temps
-T = 20  # Durée de la simulation
+T = 200  # Durée de la simulation
 
 # %%
 # Méthode d'Euler: **Création des listes**
@@ -139,8 +139,6 @@ plt.ylabel("Population")
 plt.title("Évolution de la population de bactéries (Équation de Verhulst)")
 plt.grid()
 plt.show()
-
-
 
 # %% [markdown]
 # # Les équations de Lotka-Volterra
@@ -193,3 +191,5 @@ plt.legend()
 plt.grid()
 plt.show()
 
+
+# %%
