@@ -46,7 +46,7 @@
 # # Structures de contrôle (`if` `else` `elif`)
 
 # %% [markdown]
-# Entrez l'altitude en mètres.  
+# Entrez une altitude en mètres.  
 
 # %%
 # Point d'ébullition de l'eau au niveau de la mer (en degrés Celsius)
