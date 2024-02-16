@@ -22,7 +22,7 @@
 #
 # ### La dynamique des populations:
 #
-# Pour prédire et comprendre la dynamique des populations, des modèles mathématiques tels que les équations différentielles sont souvent utilisés. En général, celles-ce dépendent de nombreux facteurs et sont extrêmement complexes à modéliser. 
+# Pour prédire et comprendre la dynamique des populations, des modèles mathématiques avec équations différentielles sont utilisés. En général, celles-ci dépendent de nombreux facteurs et sont extrêmement complexes à modéliser. 
 #
 # Cela dit, certaines dynamiques "simples" peuvent être modélisées par des équations différentielles ordinaires (EDO). 
 #
@@ -33,13 +33,13 @@
 #
 #
 # ### La méthode d'Euler:
-# La méthode d'Euler est une technique numérique couramment utilisée pour résoudre des équations différentielles ordinaires (EDO). 
+# La méthode d'Euler est une technique numérique utilisée pour résoudre des équations différentielles ordinaires (EDO). 
 #
 # Voici un résumé de la méthode d'Euler :
 #
 # - Discrétisation du temps : La première étape de la méthode d'Euler consiste à diviser l'intervalle de temps en petits pas, ce qui crée une discrétisation du temps. Plus l'intervalle de temps est petit, plus l'approximation sera précise.
 #
-# - Condition initiale : Vous devez connaître la valeur initiale de la variable dépendante à un certain moment, c'est-à-dire la condition initiale. Cela sert de point de départ pour résoudre l'EDO.
+# - Condition initiale : la valeur initiale de la variable dépendante à un certain moment, c'est-à-dire la condition initiale, sert de point de départ pour résoudre l'EDO.
 #
 # - Approximation de la dérivée : À chaque pas de temps, vous approximez la dérivée de la variable dépendante en utilisant la valeur actuelle de la variable et l'EDO. La dérivée approximée est calculée en multipliant le taux de variation local par la taille du pas de temps.
 #
@@ -129,6 +129,8 @@ for t in np.arange(dt, T + dt, dt):
     N = population[-1] + dN_dt * dt
     time_points.append(t)
     population.append(N)
+
+print("hjfjhwdv")
 
 # %%
 # Tracé du graphique de l'évolution de la population

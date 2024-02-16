@@ -24,13 +24,13 @@
 #
 # La vitesse $v$ d'un objet en mouvement, en fonction du temps $t$, est définie comme la dérivée première de sa position $s$ par rapport au temps. Mathématiquement, cela s'exprime comme suit :
 #
-# $$ v(t) = \frac{ds}{dt} $$
+# $$ v(t) = \frac{ds(t)}{dt} $$
 #
 # Cette équation indique que la vitesse instantanée à un instant donné $t$ est égale à la dérivée de la position $s$ par rapport au temps $t$. En d'autres termes, la vitesse représente la variation de la position par rapport au temps.
 #
 # L'accélération $a$, en fonction du temps $t$, est définie comme la dérivée première de la vitesse $v$ par rapport au temps. Mathématiquement, cela s'exprime comme suit :
 #
-# $$ a(t) = \frac{dv}{dt} $$
+# $$ a(t) = \frac{dv(t)}{dt} $$
 #
 # Cette équation indique que l'accélération instantanée à un instant donné $t$ est égale à la dérivée de la vitesse $v$ par rapport au temps $t$. En d'autres termes, l'accélération représente la variation de la vitesse par rapport au temps.
 #

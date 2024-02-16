@@ -229,3 +229,182 @@ ax.set(xlim=(35, 45))
 plt.savefig('./fichiers_output/Exemple_01_cinematique_MRU_graphique_comparaison.pdf')
 
 # %% hidden=true
+import matplotlib.pyplot as plt
+import numpy as np
+
+def midpoint(p1, p2):
+    return ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
+
+def sierpinski_triangle(ax, depth, p1, p2, p3):
+    if depth == 0:
+        ax.fill([p1[0], p2[0], p3[0]], [p1[1], p2[1], p3[1]], 'k')
+    else:
+        p12 = midpoint(p1, p2)
+        p23 = midpoint(p2, p3)
+        p31 = midpoint(p3, p1)
+        sierpinski_triangle(ax, depth - 1, p1, p12, p31)
+        sierpinski_triangle(ax, depth - 1, p12, p2, p23)
+        sierpinski_triangle(ax, depth - 1, p31, p23, p3)
+
+def sierpinski_triangle_graph(depth):
+    p1 = (0, 0)
+    p2 = (1, 0)
+    p3 = (0.5, np.sqrt(3) / 2)
+    fig, ax = plt.subplots()
+    ax.set_aspect('equal', 'box')
+    sierpinski_triangle(ax, depth, p1, p2, p3)
+    ax.axis('off')
+    plt.show()
+
+if __name__ == "__main__":
+    for depth in range(8):
+        print(depth)
+        print(sierpinski_triangle_graph(depth))
+
+
+# %%
+import sys
+import time
+
+# Fonction pour imprimer dynamiquement sur la même ligne
+def print_dynamic(text):
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
+
+# Exemple d'utilisation
+for i in range(11):
+    print_dynamic("Progress: {}%".format(i*10))
+    time.sleep(1)  # Ajout d'un délai simulé
+
+# %%
+import time
+
+# Exemple d'utilisation
+for i in range(10):
+    print("Progress: {}%".format(i*10), end='\r')
+    time.sleep(1)  # Ajout d'un délai simulé
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+import time
+
+def show_dynamic_image(image):
+    plt.figure()
+    img_plot = plt.imshow(image)
+    plt.show(block=False)  # Affichage non bloquant pour permettre les mises à jour
+
+    for i in range(10):  # Exemple de mise à jour dynamique
+        # Mise à jour de l'image
+        new_image = np.random.rand(100, 100)  # Exemple de nouvelle image (ici aléatoire)
+        img_plot.set_data(new_image)
+        plt.pause(1)  # Délai d'attente (secondes)
+        plt.draw()
+
+    plt.close()  # Fermer la fenêtre une fois que les mises à jour sont terminées
+
+# Exemple d'utilisation
+image = np.random.rand(100, 100)  # Image aléatoire de taille 100x100
+show_dynamic_image(image)
+
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Définition de la plage horaire (de minuit à minuit)
+start_time = 0
+end_time = 24 * 60  # Nombre de minutes dans une journée (1440 minutes)
+
+# Génération des temps (une minute d'intervalle)
+time_points = np.arange(start_time, end_time, 1)
+
+# Génération aléatoire des températures entre 8 et 30 degrés Celsius
+temperatures = np.random.uniform(8, 30, len(time_points))
+
+# Création du graphique
+plt.figure(figsize=(10, 6))
+plt.plot(time_points / 60, temperatures, color='blue')
+plt.title('Variation de la température pendant une journée')
+plt.xlabel('Temps (heures)')
+plt.ylabel('Température (degrés Celsius)')
+plt.grid(True)
+plt.show()
+
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Définition de la plage horaire (de minuit à minuit)
+start_time = 0
+end_time = 24 * 60  # Nombre de minutes dans une journée (1440 minutes)
+
+# Génération des temps (une minute d'intervalle)
+time_points = np.arange(start_time, end_time, 1)
+
+# Génération de la variation de température similaire à une fonction sinus
+# En ajustant l'amplitude et la phase, vous pouvez contrôler l'apparence de la variation de température
+amplitude = 11  # Amplitude de la variation de température
+phase = np.pi*(3/2)   # Décalage de phase
+temperature_variation = np.round(amplitude * np.sin(2 * np.pi * time_points / end_time + phase) + 19, 3)  # Ajout d'une température moyenne de 19 degrés
+
+
+# Joindre les tableaux temperature_variation et time_points ensemble
+data = np.column_stack((time_points,temperature_variation))
+
+# Création du graphique
+plt.figure(figsize=(10, 6))
+plt.plot(time_points / 60, temperature_variation, color='blue')
+plt.title('Variation de la température pendant une journée (similaire à une fonction sinus)')
+plt.xlabel('Temps (heures)')
+plt.ylabel('Température (degrés Celsius)')
+plt.axhline(y=14, color='black', linestyle='--', label='Chauffage')  # Ajoute une ligne pointillée à 14 degrés pour indiquer le chauffage
+plt.axhline(y=28, color='black', linestyle='--', label='Refroidissement')  # Ajoute une ligne pointillée à 28 degrés pour indiquer le refroidissement
+plt.grid(True)
+plt.show()
+
+
+# %%
+time_index = start_time
+while True:
+    # Récupère la température mesurée à l'index de temps actuel:
+    temperature_mesuree = data[time_index][1]
+
+    # Ajuste l'état du système de contrôle de température en fonction de la température mesurée:
+    if temperature_mesuree <= 14:
+        etat_systeme_temperature_controle = "chauffage"
+    elif 14 < temperature_mesuree < 28:
+        etat_systeme_temperature_controle = "éteint"
+    else:
+        etat_systeme_temperature_controle = "refroidissement"
+
+    # Affiche dynamiquement le temps, la température mesurée et l'état du système de contrôle de température
+    print_dynamic(f'Temps: {data[time_index][0]} min ; Température : {data[time_index][1]:.3f} degré celsius ;  État système contrôle température : {etat_systeme_temperature_controle}')
+
+    # Pause l'exécution du programme pendant un court laps de temps simulé (en secondes) pour simuler l'attente entre chaque mesure de température.
+    time.sleep(.001)
+
+    # Incrémente l'index de temps pour passer au prochain intervalle de temps.
+    time_index += 1
+
+    # Vérifie si la plage horaire définie a été entièrement parcourue
+    if time_index == end_time:
+        # Affiche un message indiquant que le système de contrôle de température a fonctionné aujourd'hui
+        print_dynamic("Le système de contrôle de température a fonctionné aujourd'hui!")
+        break  # Termine la boucle et arrête l'exécution du programme
+
+
+   
+
+# %%
+import sys 
+from IPython.display import clear_output
+
+def print_dynamic(text):
+    clear_output(wait=True)
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
+    
+
+# %%
