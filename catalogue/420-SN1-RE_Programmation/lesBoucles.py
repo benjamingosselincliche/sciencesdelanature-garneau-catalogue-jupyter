@@ -24,10 +24,10 @@
 # %% [markdown]
 # ---
 # # Objectifs:
-# - Utiliser les boucles `for` et `while` pour répéter des instructions.
-# - Utiliser l'opérateur `break` pour sortir d'une boucle.
+# - Utiliser les `Listes` 
+# - Utiliser les `Tuples`
 # - Utiliser l'opérateur `continue` pour passer à l'itération suivante d'une boucle.
-# - Utiliser la fonction `range` pour générer une séquence d'entiers.
+# - Utiliser la fonction `range` pour générer une séquence d'entiers. <br>
 # Ce, afin de créer des programmes plus efficaces et modulaires.
 
 
@@ -208,7 +208,7 @@ import sys
 from IPython.display import IFrame, clear_output
 
 # Charger les données à partir du fichier CSV dans un DataFrame
-df = pd.read_csv('donnees_temperature.csv')
+df = pd.read_csv('data/donnees_temperature.csv')
 print("-"*50)
 print("Tableau de la température en fonction du temps:")
 print(df)
@@ -219,7 +219,7 @@ data = df.values
 # Afficher le fichier PDF
 print("-"*50)
 print("Graphique:")
-IFrame('variation_temperature.pdf', width=600, height=400)
+IFrame('img/variation_temperature.pdf', width=600, height=400)
 
 # %%
 #Dans cette cellule, on simule le processus du contrôle de température
