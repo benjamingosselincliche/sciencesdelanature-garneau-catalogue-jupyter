@@ -62,11 +62,11 @@
 # L'équation logistique de Verhulst peut être formulée comme suit :
 #
 # $$
-# \frac{dN}{dt} = r \cdot N \cdot \left(1 - \frac{N}{K}\right)
+# \frac{dN(t)}{dt} = r \cdot N(t) \cdot \left(1 - \frac{N(t)}{K}\right)
 # $$
 # où :
-# - $ \frac{dN}{dt} $ représente le taux de croissance de la population par rapport au temps ($ t $).
-# - $ N $ est la taille de la population à un moment donné.
+# - $ \frac{dN(t)}{dt} $ représente le taux de croissance de la population par rapport au temps ($ t $).
+# - $ N(t) $ est la taille de la population à un moment $t$.
 # - $ r $ est le taux de croissance intrinsèque de la population, qui dépend des conditions environnementales et des caractéristiques de l'organisme.
 # - $ K $ est la capacité de charge de l'environnement, c'est-à-dire la taille maximale que la population peut atteindre en fonction des ressources disponibles.
 #
@@ -87,16 +87,13 @@
 #      $$
 #    - Incrémentation du temps : $t_{n+1} = t_n + \Delta t$.
 #
-#
-#
-#
 
 # %%
 # Initialisation des modules nécessaires:
 import numpy as np
 import matplotlib.pyplot as plt
 
-# %%
+
 # Méthode d'Euler: **Initialisation des variables** :
 
 # Paramètres de l'équation logistique de Verhulst
@@ -105,17 +102,13 @@ K = 1000  # Capacité de charge de l'environnement
 dt = .1  # Intervalle de temps
 T = 200  # Durée de la simulation
 
-# %%
+
 # Méthode d'Euler: **Création des listes**
 
 # Initialisation des listes pour stocker les données à chaque itération:
 time_points = [0]  # temps initial
 population = [10]  # Population initiale
 
-# %%
-# np.arange(dt, T + dt, dt)
-
-# %%
 # Méthode d'Euler: **Itération**
 
 # Boucle for pour résoudre l'équation de Verhulst: 
@@ -130,9 +123,7 @@ for t in np.arange(dt, T + dt, dt):
     time_points.append(t)
     population.append(N)
 
-print("hjfjhwdv")
 
-# %%
 # Tracé du graphique de l'évolution de la population
 plt.figure(figsize=(10, 6))
 plt.plot(time_points, population)
@@ -145,30 +136,32 @@ plt.show()
 # %% [markdown]
 # # Les équations de Lotka-Volterra
 # %%
+# Initialisation des modules nécessaires:
+import numpy as np
+import matplotlib.pyplot as plt
+
 # Paramètres des équations de Lotka-Volterra
 r_N = 0.1  # Taux de reproduction intrinsèque des proies
 a = 0.02  # Taux de prédation
 r_P = 0.3  # Taux de décroissance intrinsèque des prédateurs
 b = 0.01  # Efficacité de la prédation
 
-# %%
 # Conditions initiales
 N0 = 40  # Population initiale de proies
 P0 = 9   # Population initiale de prédateurs
 
-# %%
+
 # Intervalle de temps et nombre d'itérations
 dt = 0.1
 T = 200
 num_iterations = int(T / dt)
 
-# %%
 # Initialisation des listes pour stocker les données
 time_points = [0]
 prey_population = [N0]
 predator_population = [P0]
 
-# %%
+
 # Boucle for pour résoudre les équations de Lotka-Volterra avec la méthode d'Euler
 for i in range(num_iterations):
     dN = (r_N * prey_population[-1] - a * prey_population[-1] * predator_population[-1]) * dt
@@ -181,17 +174,27 @@ for i in range(num_iterations):
     prey_population.append(N)
     predator_population.append(P)
 
-# %%
+
 # Tracé du graphique de l'évolution des populations de proies et de prédateurs
 plt.figure(figsize=(10, 6))
-plt.plot(time_points, prey_population, label='Proies')
-plt.plot(time_points, predator_population, label='Prédateurs')
+plt.plot(time_points, prey_population, label='Population proies')
+plt.plot(time_points, predator_population, label='Population prédateurs')
 plt.xlabel("Temps")
 plt.ylabel("Population")
 plt.title("Dynamique des populations de proies et de prédateurs (Lotka-Volterra)")
 plt.legend()
 plt.grid()
 plt.show()
+
+# %%
+
+# %%
+
+# %%
+
+# %%
+
+# %%
 
 
 # %%

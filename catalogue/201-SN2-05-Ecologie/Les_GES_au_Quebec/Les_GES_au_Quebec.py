@@ -53,39 +53,6 @@ import pandas as pd
 df = pd.read_csv('./fichiers_input/inventaire-ges.csv',sep = ';')
 df
 
-# %% [markdown]
-# ---
-# # Informations de base sur le jeu de données:
-#
-# Pour bien comprendre les données dans un DataFrame pandas, vous devez examiner plusieurs aspects clés pour en tirer le meilleur parti. Voici une liste d'informations de base à prendre en compte :
-#
-# 1. La structure du DataFrame :
-#    - Le nombre de lignes (observations) et de colonnes (variables) dans le DataFrame.
-#    - Les noms des colonnes, qui représentent les différentes variables.
-#
-#
-# 2. Les types de données :
-#    - Vérifiez les types de données de chaque colonne à l'aide de `dtypes` pour vous assurer qu'ils sont corrects.
-#
-# 3. Les valeurs uniques :
-#    - Pour comprendre la variabilité des données catégoriques, utilisez `unique()` pour obtenir les valeurs uniques d'une colonne.
-#
-# ```python
-# df['colonne'].unique()
-# ```
-#
-# 4. Les données manquantes :
-#    - Utilisez `isna()` ou `isnull()` pour identifier les données manquantes dans le DataFrame.
-#
-# ```python
-# df.isna().sum()
-# ```
-#
-#   
-#
-#
-#
-#
 # %%
 # Le nombre de ligne (rows) et de colonne (columns) est: 
 df.shape

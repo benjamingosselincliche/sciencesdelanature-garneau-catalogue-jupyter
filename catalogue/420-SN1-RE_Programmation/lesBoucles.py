@@ -13,7 +13,7 @@
 #     name: python3
 # ---
 
-# %% [markdown]
+# %% [markdown] jp-MarkdownHeadingCollapsed=true
 # # Démonstration sur les boucles avec Python <br>
 # ---
 # <div style="text-align: center; margin-top: 20px;">
@@ -44,7 +44,7 @@
 # Par exemple, pour effectuer 10 fois une tâche spécifique, on peut utiliser la boucle suivante:
 # ```python
 # for i in range(10):
-#  print(i)
+#     print(i)
 # ```
 # Dans cet exemple, `i` est la variable d'itération et `range(10)` est la séquence d'entiers de 0 à 9.  <br>
 # On peut également utiliser la boucle `for` pour répéter un bloc de code pour chaque élément d'une liste ou d'un tuple.  <br>
@@ -281,7 +281,7 @@ while True:
         print("Le système de contrôle de température a fonctionné sans interruption aujourd'hui!")
         print(f'Nombre de minutes utilisées en mode "chauffage": {count_minute_chauffage} min')
         print(f'Nombre de minutes utilisées en mode "refroidissement": {count_minute_refroidissement} min')
-        print(f'Nombre de minutes en mode "inactif": {count_minute_eteint} min')
+        print(f'Nombre de minutes en mode "inactif": {count_minute_inactif} min')
         print(f'Énergie totale estimée: {nb_kWh:.2f} kWh')
         print(f'Coût total de fonctionnement estimé: {cout:.2f} $')
         # On termine la boucle. 
