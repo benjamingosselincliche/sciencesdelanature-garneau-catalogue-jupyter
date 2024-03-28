@@ -32,11 +32,10 @@
 #
 # Dans cet exemple, nous avons un enregistrement d'une position en fonction du temps. À partir de cet enregistrement, nous pouvons calculer la vitesse et l'accélération à l'aide la méthode des différences finies.
 #
-# ---
 # ## Objectifs :
 #
-# - 
-# - mip
+# - Appliquer la méthode par le biais d'une fonction
+# - Appliquer une moyenne mobile pour lisser une courbe
 #
 # ### Définition analytique
 #
@@ -196,3 +195,13 @@ acceleration_lisse = moyenne_mobile(acceleration, fenetre)
 
 plt.plot(acceleration_lisse, label='Acceleration en fonction du temps')
 plt.show()
+
+# %%
+
+# %%
+
+# %%
+
+# %%
+
+# %%

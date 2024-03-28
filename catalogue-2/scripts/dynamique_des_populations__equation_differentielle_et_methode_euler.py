@@ -16,6 +16,15 @@
 # %% [markdown]
 # # La dynamique des populations
 # ---
+# <div style="text-align: center;">
+#     <div style="display: inline-block; position: relative; width: 350px;">
+#         <img src="../img/_da709904-9305-4b95-a50f-3ac37b077133.jpeg" alt="Dessin" style="width: 100%;"/>
+#         <p style="text-align: center; margin-top: 5px;">
+#             <span style="font-style: italic; font-size: 16px;"> Course et destinée </span><br/>
+#             <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+#         </p>
+#     </div>
+# </div>
 
 # %% [markdown]
 # ## Mise en contexte:
@@ -26,10 +35,10 @@
 #
 # Cela dit, certaines dynamiques "simples" peuvent être modélisées par des équations différentielles ordinaires (EDO). 
 #
-# - L'équation logistique de Verhulst:
-#   bla bla
-# - Les équations de Lotka-Volterra.
-#   bla bla
+# - L'équation logistique de Verhulst: décription de la croissance d'une population en fonction du temps, en prenant en compte les limitations environnementales.
+#
+# - Les équations de Lotka-Volterra: 
+#
 #
 #
 # ### La méthode d'Euler:
