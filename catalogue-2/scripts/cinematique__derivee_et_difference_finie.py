@@ -15,8 +15,7 @@
 
 # %% [markdown]
 # # Cinematique : position, vitesse et accélération.
-#
-#
+# ---
 # <div style="text-align: center;">
 #     <div style="display: inline-block; position: relative; width: 350px;">
 #         <img src="../img/_68f9688a-19d4-4a3b-97dc-c3ac11ee12f1.jpeg" alt="Dessin" style="width: 100%;"/>
@@ -26,10 +25,18 @@
 #         </p>
 #     </div>
 # </div>
-#
+
+# %% [markdown]
+# ---
 # ## Mise en contexte :
 #
 # Dans cet exemple, nous avons un enregistrement d'une position en fonction du temps. À partir de cet enregistrement, nous pouvons calculer la vitesse et l'accélération à l'aide la méthode des différences finies.
+#
+# ---
+# ## Objectifs :
+#
+# - 
+# - mip
 #
 # ### Définition analytique
 #
@@ -162,10 +169,10 @@ plt.show()
 
 # %%
 # On remarque que le résultat devient de plus en plus bruité. 
-# Nous pouvons appliquer la méthode de la moyenne mobile pour "polir" la courbe. 
+# Nous pouvons appliquer la méthode de la moyenne mobile pour lisser la courbe. La moyenne mobile est une technique statistique qui lisse les variations dans les données en calculant la moyenne des valeurs sur une fenêtre glissante de taille fixe.  
 
 ## ---------------------------------------------------------
-##  
+## Definition d'une fonction de moyenne mobile
 
 def moyenne_mobile(liste, fenetre):
     # Création d'une liste pour stocker les valeurs de la moyenne mobile
@@ -181,19 +188,11 @@ def moyenne_mobile(liste, fenetre):
     # Renvoi de la liste contenant les valeurs de la moyenne mobile
     return moyenne_mobile_tab
 
+## ---------------------------------------------------------
+## Application de la moyenne mobile:
 
-# %%
 fenetre = 15
 acceleration_lisse = moyenne_mobile(acceleration, fenetre)
 
 plt.plot(acceleration_lisse, label='Acceleration en fonction du temps')
 plt.show()
-
-# %%
-print(len(acceleration))
-print(len(acceleration_lisse))
-
-
-# %%
-
-# %%

@@ -16,11 +16,18 @@
 # %% [markdown]
 # # Les gaz à effet de serre au Québec
 # ---
-
-# %% [markdown]
+#
 # <div style="text-align: center;">
-#     <img src="./img/_cc50555b-1857-4a03-a71b-744befcfb323.jpeg" alt="Drawing" style="width: 300px;"/>
+#     <div style="display: inline-block; position: relative; width: 350px;">
+#         <img src="../img/_cc50555b-1857-4a03-a71b-744befcfb323.jpeg" alt="Dessin" style="width: 100%;"/>
+#         <p style="text-align: center; margin-top: 5px;">
+#             <span style="font-style: italic; font-size: 16px;"> Solution simple </span><br/>
+#             <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+#         </p>
+#     </div>
 # </div>
+#
+#
 
 # %% [markdown]
 # Les données de l'inventaire québécois des émissions de gaz à effet de serre, sont disponibles chez [Données Québec](https://www.donneesquebec.ca/recherche/dataset/inventaire-quebecois-des-emissions-de-gaz-a-effet-de-serre "https://www.donneesquebec.ca/recherche/dataset/inventaire-quebecois-des-emissions-de-gaz-a-effet-de-serre"):

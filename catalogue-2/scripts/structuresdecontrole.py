@@ -1,4 +1,4 @@
-ù# ---
+# ---
 # jupyter:
 #   jupytext:
 #     formats: py:percent
@@ -15,10 +15,15 @@
 
 # %% [markdown]
 # # Démonstration sur les structures de contrôle avec Python  : 
-# # Point d'ébullition de l'eau en fonction de l'altitude
 # ---
-# <div style="text-align: center; margin-top: 20px;">
-#     <img src="./img/banner.webp" alt="Drawing" style="width: 300px;"/>
+# <div style="text-align: center;">
+#     <div style="display: inline-block; position: relative; width: 350px;">
+#         <img src="../img/banner.webp" alt="Dessin" style="width: 100%;"/>
+#         <p style="text-align: center; margin-top: 5px;">
+#             <span style="font-style: italic; font-size: 16px;"> Et si?</span><br/>
+#             <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+#         </p>
+#     </div>
 # </div>
 
 
@@ -28,7 +33,7 @@
 # - Utiliser les structures de contrôle `if` `else` `elif`
 # - Utiliser les opérateurs logiques booléens `and` `or` `True` `False` `not`
 # - Utiliser les opérateurs de comparaison `>` `<` `<=` `>=` `==`  
-#  Ce, afin de créer des programmes qui s'adaptent aux données et instructions fournies.
+#
 
 
 # %% [markdown]
