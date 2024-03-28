@@ -3,27 +3,29 @@
 
 
 ## Catalogue Jupyter
-Ce projet vise à fournir une multitude de démonstrations python utiles pour les enseignants de science de la nature.
+Ce projet vise ï¿½ fournir une multitude de dï¿½monstrations python utiles pour les enseignants de science de la nature.
 
 ## Installation
-Vous aurez besoin d'utiliser le logiciel gratuit 'Jupyter' pour consulter les démontrations. 
+Vous aurez besoin d'utiliser le logiciel gratuit 'Jupyter' pour consulter les dï¿½montrations. 
 Celles-ci sont aussi disponibles sous forme de fichier python (.py) directement dans le dossier 'scripts'.
 
-## Utilisation
+## Liste des notebooks:
 
 
-## Notes aux développeurs:
+
+
+## Notes aux dï¿½veloppeurs:
 
 ### Paired notebooks
 
-Afin de lier le fichier filename.ipynb à un fichier filename.py (de type percent):
+Afin de lier le fichier filename.ipynb ï¿½ un fichier filename.py (de type percent):
 
-1) dans le même répertoire:
+1) dans le mï¿½me rï¿½pertoire:
 ```
 jupytext --to py:percent filename.ipynb
 ```
 
-2) dans sous-répertoire scripts:
+2) dans sous-rï¿½pertoire scripts:
 ```
 jupytext --set-formats ipynb,scripts//py:percent --sync filename.ipynb
 ```
