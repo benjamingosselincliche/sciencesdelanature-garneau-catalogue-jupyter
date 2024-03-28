@@ -321,27 +321,43 @@ plt.show()
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
 
 # Chargement des données sur les galaxies depuis un fichier CSV
-donnees_etoiles = pd.read_csv("../data/hygdata_v37.csv")
+donnees_etoiles = pd.read_csv("../data/hygdata_v37_propre.csv")
 
-# Création du tableau présentant les caractéristiques du DataFrame
-caracteristiques_df = pd.DataFrame({
-    "Nom de la colonne": donnees_etoiles.columns,
-    "Type de données": donnees_etoiles.dtypes,
-    "Nombre de valeurs non nulles": donnees_etoiles.count(),
-    "Valeurs uniques": donnees_etoiles.nunique()
-})
+# Affichage des planêtes nommées (proper) et de leur distance (dist) à la Terre
+print(donnees_etoiles[['proper','dist']])
 
-# Ajout de la ligne pour le nombre total de lignes
-caracteristiques_df = caracteristiques_df.append(pd.Series({
-    "Nom de la colonne": "Nombre total de lignes",
-    "Type de données": "",
-    "Nombre de valeurs non nulles": donnees_etoiles.shape[0],
-    "Valeurs uniques": ""
-}, name="Nombre total de lignes"))
+#Tri des étoiles par distance croissante
+etoiles_triees_par_distance = donnees_etoiles.sort_values(by="dist", ascending=True)
 
-# Affichage du tableau
-print(caracteristiques_df)
+# Affichage des 10 étoiles les plus proches de la Terre
+print("\n10 étoiles les plus proches de la Terre :\n", etoiles_triees_par_distance.head(10)[['proper','dist']])
+
+# Création de la figure
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Sélection des 10 étoiles les plus proches du soleil
+etoiles_plus_proches = etoiles_triees_par_distance.head(10)
+
+# Affichage des étoiles dans l'espace 3D
+ax.scatter(etoiles_plus_proches['x'], etoiles_plus_proches['y'], etoiles_plus_proches['z'], c='blue', s=50, alpha=0.7)
+
+# Configuration des étiquettes
+ax.set_title("Les 10 étoiles les plus proches du soleil")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+
+# Affichage des noms des étoiles
+for i, txt in enumerate(etoiles_plus_proches['proper']):
+    ax.text(etoiles_plus_proches['x'].iloc[i], etoiles_plus_proches['y'].iloc[i], etoiles_plus_proches['z'].iloc[i], txt, fontsize=8)
+
+plt.tight_layout()
+plt.show()
 
 # %%
