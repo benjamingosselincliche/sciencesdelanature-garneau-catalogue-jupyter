@@ -14,10 +14,17 @@
 # ---
 
 # %% [markdown] jp-MarkdownHeadingCollapsed=true
-# # Démonstration sur les boucles avec Python <br>
+# # Démonstration sur les boucles avec Python 
 # ---
-# <div style="text-align: center; margin-top: 20px;">
-#     <img src="./img/banner.jpg" alt="Drawing"/>
+# <br>
+# <div style="text-align: center;">
+#     <div style="display: inline-block; position: relative; width: 350px;">
+#         <img src="../img/banner.jpg" alt="Dessin" style="width: 100%;"/>
+#         <p style="text-align: center; margin-top: 5px;">
+#             <span style="font-style: italic; font-size: 16px;"> Tant que nous devons </span><br/>
+#             <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+#         </p>
+#     </div>
 # </div>
 
 
