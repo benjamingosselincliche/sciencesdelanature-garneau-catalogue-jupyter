@@ -2,12 +2,19 @@
 ![image](https://github.com/Benjamin-GosselinCliche/SciencesDeLaNature_Garneau_Catalogue_Jupyter/assets/21174453/35aebb6d-4c62-41a9-8b3c-a44c2022ae54)
 
 
-## Catalogue Jupyter
-Ce projet vise � fournir une multitude de d�monstrations python utiles pour les enseignants de science de la nature.
+## Catalogue Jupyter: 
+Démonstrations de python utiles pour les enseignants de Science de la nature.
 
-## Installation
-Vous aurez besoin d'utiliser le logiciel gratuit 'Jupyter' pour consulter les d�montrations. 
-Celles-ci sont aussi disponibles sous forme de fichier python (.py) directement dans le dossier 'scripts'.
+## Installation de l'environnement virtuel:
+
+```python
+python -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+
 
 ## Liste des notebooks:
 
