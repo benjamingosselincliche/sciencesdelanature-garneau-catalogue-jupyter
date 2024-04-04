@@ -44,12 +44,11 @@ Les notebooks sont enregistrés en `.py`. Pour être reconnu en notebook, ceux-c
 #     name: python3
 ```
 
-Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]` est une cellule de texte et la balise `%% [python]` (ou `%%`) est un cellule de code normal.
+Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]` est une cellule de texte et la balise `%% [python]` (ou `%%`) est une cellule de code normal. 
 
+Les notebooks peuvent être aussi enregistrés en `.ipynb`. Il s'agit d'un format de fichier directement reconnu comme un notebook, mais il est moins polyvalent. 
 
- 
-
-
+Références:
 [https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
 
 
