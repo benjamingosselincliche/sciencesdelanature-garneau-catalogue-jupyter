@@ -44,7 +44,7 @@ Les notebooks sont enregistrés en `.py`. Pour être reconnu en notebook, ceux-c
 #     name: python3
 ```
 
-Le format `py:percent` permet de spécifier la nature des cellules. La balise `\%\% [markdown]`
+Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]`
  
 
 
