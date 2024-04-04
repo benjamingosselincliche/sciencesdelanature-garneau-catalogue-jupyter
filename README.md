@@ -17,19 +17,38 @@ pip install -r requirements.txt
 
 ## Structure de fichier:
 
-- **/docs**: Ce répertoire contient la documentation de notre projet.
+- **/data**: Ce répertoire contient les données utilisées (.txt, .xlsx, .csv, etc.).
 
 - **/img**: Ce répertoire contient les images.
-
-- **/data**: Ce répertoire contient les données utilisées (txt, xlsx, csv).
 
 - **/output**: Ce répertoire contient les fichiers de sortie des codes.
 
 - **/scripts**: Ce répertoire contient les notebooks (.py).
 
+## Configuration des notebooks (.py ou .ipynb?):
+
+Les notebooks sont enregistrés en `.py`. Pour être reconnu en notebook, ceux-ci contiennent une entête de métadonnées pour être reconnu par Jupytext.
+
+```python
+# jupyter:
+#   jupytext:
+#     formats: py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.15.2
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+```
+
+Le format `py:percent` permet de spécifier la nature des cellules. La balise `\%\% [markdown]`
+ 
 
 
-
+[https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
 
 
 ## Notes aux développeurs:
