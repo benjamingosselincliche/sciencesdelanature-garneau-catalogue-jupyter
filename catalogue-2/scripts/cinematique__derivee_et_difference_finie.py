@@ -53,7 +53,7 @@
 #
 # ### Approximation numérique
 #
-# Les différences finies constituent une méthode numérique couramment utilisée pour approximer  les dérivées. Cette approche repose sur la discrétisation des grandeurs. 
+# Les différences finies est une méthode numérique couramment utilisée pour approximer  les dérivées. Cette approche repose sur la discrétisation des grandeurs. 
 #
 # Considérons une séquence discrète de positions $s_i$ enregistrées à des instants $t_i$. La vitesse $v_i$ à l'instant $t_i$ peut être estimée en utilisant la différence finie centrale pour la dérivée première. La formule associée à cette estimation est la suivante :
 #
@@ -61,7 +61,7 @@
 #
 # Cette formule exprime la pente du segment reliant les points $s_{i-1}$ et $s_{i+1}$. En utilisant cette méthode, la vitesse au point $t_i$ est ainsi calculée.
 #
-# Pour estimer l'accélération $a_i$ à l'instant $t_i$, la différence finie centrale peut être appliquée une nouvelle fois à la séquence des vitesses $v_i$ obtenues précédemment. La formule correspondante est la suivante :
+# Pour estimer l'accélération $a_i$ à l'instant $t_i$, la différence finie centrale peut être appliquée une nouvelle fois à la séquence des vitesses $v_i$ obtenues précédemment. La formule correspondante a la même forme :
 #
 # $$ a_i = \frac{v_{i+1} - v_{i-1}}{t_{i+1} - t_{i-1}} $$
 #
@@ -73,7 +73,6 @@
 # %%
 ## ---------------------------------------------------------
 ## Importation des données: 
-
 
 # Créer une liste vide pour stocker les valeurs de temps
 temps = []
@@ -195,13 +194,5 @@ acceleration_lisse = moyenne_mobile(acceleration, fenetre)
 
 plt.plot(acceleration_lisse, label='Acceleration en fonction du temps')
 plt.show()
-
-# %%
-
-# %%
-
-# %%
-
-# %%
 
 # %%
