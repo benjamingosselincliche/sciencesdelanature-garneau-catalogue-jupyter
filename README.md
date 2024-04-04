@@ -15,6 +15,20 @@ pip install -r requirements.txt
 
 ## Liste des notebooks:
 
+## Structure de fichier:
+
+- **/docs**: Ce répertoire contient la documentation de notre projet.
+
+- **/img**: Ce répertoire contient les images.
+
+- **/data**: Ce répertoire contient les données utilisées (txt, xlsx, csv).
+
+- **/output**: Ce répertoire contient les fichiers de sortie des codes.
+
+- **/scripts**: Ce répertoire contient les notebooks (.py).
+
+
+
 
 
 
