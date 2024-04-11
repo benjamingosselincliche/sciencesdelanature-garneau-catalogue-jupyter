@@ -15,6 +15,15 @@ pip install -r requirements.txt
 
 ## Liste des notebooks:
 
+- cinematique__derivee_et_difference_finie.py
+- dynamique_des_populations__equation_differentielle_et_methode_euler.py
+- lesBoucles.py
+- les_ges_au_quebec__dataframe.py
+- mathematique_symbolique__scipy.ipynb
+- modeles_et_donnees__sckitlearn.ipynb
+- structuresDeDonnes.py
+- structuresdecontrole.py
+
 ## Structure de fichier:
 
 - **/data**: Ce répertoire contient les données utilisées (.txt, .xlsx, .csv, etc.).
