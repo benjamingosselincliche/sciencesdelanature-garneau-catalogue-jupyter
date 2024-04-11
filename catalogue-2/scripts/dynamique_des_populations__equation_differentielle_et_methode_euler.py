@@ -13,7 +13,7 @@
 #     name: python3
 # ---
 
-# %% [markdown]
+# %% [markdown] jp-MarkdownHeadingCollapsed=true
 # # La dynamique des populations
 # ---
 # <div style="text-align: center;">
@@ -35,22 +35,21 @@
 #
 # Cela dit, certaines dynamiques "simples" peuvent être modélisées par des équations différentielles ordinaires (EDO). 
 #
-# - L'équation logistique de Verhulst: décription de la croissance d'une population en fonction du temps, en prenant en compte les limitations environnementales.
+# - L'équation logistique de Verhulst: description de la croissance d'une population en fonction du temps, en prenant en compte les limitations environnementales.
 #
-# - Les équations de Lotka-Volterra: 
-#
+# - Les équations de Lotka-Volterra: description des interactions prédateur-proie dans un écosystème.
 #
 #
 # ### La méthode d'Euler:
-# La méthode d'Euler est une technique numérique utilisée pour résoudre des équations différentielles ordinaires (EDO). 
+# La méthode d'Euler est une technique numérique utilisée pour résoudre des équations différentielles ordinaires. 
 #
 # Voici un résumé de la méthode d'Euler :
 #
-# - Discrétisation du temps : La première étape de la méthode d'Euler consiste à diviser l'intervalle de temps en petits pas, ce qui crée une discrétisation du temps. Plus l'intervalle de temps est petit, plus l'approximation sera précise.
+# - Discrétisation du temps : La première étape consiste à diviser le temps en intervalle (ou le "pas" de temps), ce qui crée une discrétisation du temps. 
 #
 # - Condition initiale : la valeur initiale de la variable dépendante à un certain moment, c'est-à-dire la condition initiale, sert de point de départ pour résoudre l'EDO.
 #
-# - Approximation de la dérivée : À chaque pas de temps, vous approximez la dérivée de la variable dépendante en utilisant la valeur actuelle de la variable et l'EDO. La dérivée approximée est calculée en multipliant le taux de variation local par la taille du pas de temps.
+# - Approximation de la dérivée : À chaque pas de temps, la dérivée approximée est calculée en multipliant le taux de variation local par la taille du pas de temps.
 #
 # - Mise à jour de la variable dépendante : La nouvelle valeur de la variable dépendante est calculée en ajoutant la dérivée approximée à la valeur actuelle de la variable. Cela correspond à un pas de temps en avant.
 #
@@ -68,33 +67,34 @@
 # %% [markdown]
 # L'équation logistique de Verhulst est un modèle mathématique largement utilisé pour décrire la croissance d'une population en fonction du temps, en prenant en compte les limitations environnementales. Cette équation tire son nom du mathématicien belge Pierre-François Verhulst, qui l'a développée au XIXe siècle pour modéliser la croissance de populations animales, mais elle est également couramment appliquée à d'autres domaines, notamment en écologie et en économie.
 #
-# L'équation logistique de Verhulst peut être formulée comme suit :
+# L'équation logistique de Verhulst est :
 #
 # $$
 # \frac{dN(t)}{dt} = r \cdot N(t) \cdot \left(1 - \frac{N(t)}{K}\right)
 # $$
 # où :
-# - $ \frac{dN(t)}{dt} $ représente le taux de croissance de la population par rapport au temps ($ t $).
+# - $ \frac{dN(t)}{dt} $ représente le taux de croissance de la population par rapport au temps.
 # - $ N(t) $ est la taille de la population à un moment $t$.
 # - $ r $ est le taux de croissance intrinsèque de la population, qui dépend des conditions environnementales et des caractéristiques de l'organisme.
 # - $ K $ est la capacité de charge de l'environnement, c'est-à-dire la taille maximale que la population peut atteindre en fonction des ressources disponibles.
 #
-# Cette équation est souvent utilisée pour modéliser des situations où la croissance d'une population est limitée par des facteurs tels que la disponibilité de nourriture, d'espace ou d'autres ressources. Au fur et à mesure que la population ($ N $) augmente, le terme $ \left(1 - \frac{N}{K}\right) $ reflète la réduction de la croissance due à la saturation des ressources disponibles.
+# Cette équation est souvent utilisée pour modéliser des situations où la croissance d'une population est limitée par des facteurs tels que la disponibilité de nourriture, d'espace ou d'autres ressources. Au fur et à mesure que la population ($ N $) augmente, le terme $ \left(1 - \frac{N}{K}\right) $ reflète la réduction de la croissance due à la saturation des ressources disponibles. Le modèle de Verhulst permet donc de comprendre comment une population peut atteindre un équilibre où la croissance cesse, car elle atteint sa capacité de charge. 
 #
-# Le modèle de Verhulst permet de comprendre comment une population peut atteindre un équilibre où la croissance cesse, car elle atteint sa capacité de charge. Ce modèle est également utile pour prédire les fluctuations de population dans des conditions environnementales changeantes.
+# La méthode d'Euler sera:
 #
-# La méthode d'Euler utilise une logique itérative:
-#
-#    - À partir de $t = 0$, on répète les étapes jusqu'à ce que $t$ atteigne la valeur finale $T$:
-#    - Calcul de la dérivée approximative $\frac{dN}{dt}$ pour la $n$-ième itération:
+#    - Conditions initiales : a) temps initial ($t_0$) ; b) Population initiale ($N_0$).
+#    - Discrétisation du temps: $\Delta t$
+#    - Calcul de la dérivée $\frac{dN}{dt}$ pour la $n$-ième itération (au temps $t=t_n$):
 #      $$
-#      \frac{dN}{dt} \approx r \cdot N_n \cdot \left(1 - \frac {N_n}{K}\right)
+#      \left. \frac{dN}{dt}\right|_{t=t_n} = r \cdot N_n \cdot \left(1 - \frac {N_n}{K}\right)
 #      $$
-#    - Mise à jour de $N$ en vue de la $n+1$-ième itération :
+#    - Mise à jour de $N$ en vue de la $n+1$-ième itération (au temps $t=t_n+1$) :
 #      $$
 #      N_{n+1} = N_n + \frac{dN}{dt} \cdot \Delta t
 #      $$
 #    - Incrémentation du temps : $t_{n+1} = t_n + \Delta t$.
+#
+#    - À partir de $t = t_0$, on répète l'itération jusqu'à ce que $t$ atteigne la valeur finale $t_f$:
 #
 
 # %%
@@ -109,7 +109,7 @@ import matplotlib.pyplot as plt
 r = 0.1  # Taux de croissance intrinsèque
 K = 1000  # Capacité de charge de l'environnement
 dt = .1  # Intervalle de temps
-T = 200  # Durée de la simulation
+t_f = 200  # Durée de la simulation
 
 
 # Méthode d'Euler: **Création des listes**
@@ -134,7 +134,7 @@ for t in np.arange(dt, T + dt, dt):
 
 
 # Tracé du graphique de l'évolution de la population
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(8, 4))
 plt.plot(time_points, population)
 plt.xlabel("Temps")
 plt.ylabel("Population")
@@ -144,21 +144,42 @@ plt.show()
 
 # %% [markdown]
 # # Les équations de Lotka-Volterra
+# %% [markdown]
+# Les équations de Lotka-Volterra sont un système d'équations différentielles utilisé pour modéliser les interactions entre populations de proies ($N$) et de prédateurs ($P$) dans un écosystème. Elles ont été proposées indépendamment par Alfred J. Lotka en 1925 et Vito Volterra en 1926. Ces équations sont essentielles dans l'étude des dynamiques des populations et ont une grande importance en écologie et en biologie des populations.
+#
+# Le modèle de Lotka-Volterra est :
+#
+# \begin{array}{ccc}\dfrac{\mathrm{d}N(t)}{\mathrm{d}t} &=& N(t)\Big(\alpha - \beta P(t)\Big) \\
+# \dfrac{\mathrm{d}P(t)}{\mathrm{d}t} &=& P(t)\Big( \delta N(t) - \gamma\Big) 
+# \end{array}
+#
+# où :
+#
+# - $N(t)$ et $P(t)$ représentent respectivement les populations de proies et de prédateurs au cours du temps $t$.
+# - $\alpha$ représente le taux de croissance intrinsèque des proies (indépendants des prédateurs).
+# - $\beta$ représente le taux de mortalité des proies (dû au nombre de prédateurs).
+# - $\gamma$ représente le taux de mortalité intrinsèque des prédateurs (indépendants des proies).
+# - $\delta$ représente le taux de croissance des prédateurs (dû aux nombre de proies).
+#
+# Les équations de Lotka-Volterra prédisent ainsi des cycles périodiques de croissance et de décroissance des populations de proies et de prédateurs. Les proies se multiplient lorsqu'elles ne sont pas affectées par les prédateurs, mais leur croissance est limitée par la prédation. Les prédateurs se reproduisent en consommant des proies, mais leur population diminue lorsqu'il y a pénurie de nourriture.
+#
+#
+#
+
 # %%
 # Initialisation des modules nécessaires:
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Paramètres des équations de Lotka-Volterra
-r_N = 0.1  # Taux de reproduction intrinsèque des proies
-a = 0.02  # Taux de prédation
-r_P = 0.3  # Taux de décroissance intrinsèque des prédateurs
-b = 0.01  # Efficacité de la prédation
+alpha = 0.1  # Taux de reproduction intrinsèque des proies
+beta = 0.02  # Taux de prédation
+gamma = 0.3  # Taux de décroissance intrinsèque des prédateurs
+delta = 0.01  # Efficacité de la prédation
 
 # Conditions initiales
 N0 = 40  # Population initiale de proies
 P0 = 9   # Population initiale de prédateurs
-
 
 # Intervalle de temps et nombre d'itérations
 dt = 0.1
@@ -169,7 +190,6 @@ num_iterations = int(T / dt)
 time_points = [0]
 prey_population = [N0]
 predator_population = [P0]
-
 
 # Boucle for pour résoudre les équations de Lotka-Volterra avec la méthode d'Euler
 for i in range(num_iterations):
@@ -182,7 +202,6 @@ for i in range(num_iterations):
     time_points.append(time_points[-1] + dt)
     prey_population.append(N)
     predator_population.append(P)
-
 
 # Tracé du graphique de l'évolution des populations de proies et de prédateurs
 plt.figure(figsize=(10, 6))
