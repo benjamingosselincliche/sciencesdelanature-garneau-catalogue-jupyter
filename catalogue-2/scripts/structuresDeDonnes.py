@@ -290,32 +290,6 @@ print("\nPlanètes dont le diamètre est supérieur à 10 000 km :\n", planetes_
 donnees_planetes["Densité (g/cm^3)"] = donnees_planetes["Masse (10^24 kg)"] / ((4/3) * 3.14159265359 * ((donnees_planetes["Diamètre (km)"]/2) ** 3))
 print("\nInformations sur les planètes avec la nouvelle colonne de densité :\n", donnees_planetes)
 
-# %%
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# Création d'un DataFrame pour stocker des informations sur des exoplanètes fictives
-donnees_exoplanetes = pd.DataFrame({
-    "Nom": ["Exo1", "Exo2", "Exo3", "Exo4", "Exo5"],
-    "Diamètre (km)": [10000, 20000, 15000, 18000, 25000],
-    "Masse (10^24 kg)": [0.1, 0.3, 0.2, 0.25, 0.4],
-    "Distance de l'étoile hôte (millions de km)": [50, 80, 65, 75, 90]
-})
-
-# Diagramme de dispersion (nuage de points) masse vs diamètre pour les exoplanètes
-plt.figure(figsize=(10, 6))
-plt.scatter(donnees_exoplanetes["Masse (10^24 kg)"], donnees_exoplanetes["Diamètre (km)"], color='orange')
-
-# Ajout d'une annotation pour chaque exoplanète
-for i, row in donnees_exoplanetes.iterrows():
-    plt.text(row["Masse (10^24 kg)"], row["Diamètre (km)"], row["Nom"], fontsize=8, ha='right', va='bottom')
-
-plt.title("Relation entre la masse et le diamètre des exoplanètes")
-plt.xlabel("Masse (10^24 kg)")
-plt.ylabel("Diamètre (km)")
-plt.grid(True, linestyle='--', alpha=0.7)
-plt.tight_layout()
-plt.show()
 
 # %%
 import pandas as pd
@@ -324,7 +298,7 @@ import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-
+ 
 # Chargement des données sur les galaxies depuis un fichier CSV
 donnees_etoiles = pd.read_csv("../data/hygdata_v37_propre.csv")
 
@@ -342,20 +316,45 @@ fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
 # Sélection des 10 étoiles les plus proches du soleil
-etoiles_plus_proches = etoiles_triees_par_distance.head(10)
+etoiles_plus_proches = etoiles_triees_par_distance.head(11)
+
+# Affichage du soleil dans le graphique
+leSoleil = etoiles_plus_proches[etoiles_plus_proches['proper'] == 'Sol']
+ax.scatter(leSoleil['x'], leSoleil['y'], leSoleil['z'], c='yellow', s=400, alpha=0.7)
+
+# Retirer le soleil de la liste
+etoiles_plus_proches = etoiles_plus_proches[etoiles_plus_proches['proper'] != 'Sol']
 
 # Affichage des étoiles dans l'espace 3D
 ax.scatter(etoiles_plus_proches['x'], etoiles_plus_proches['y'], etoiles_plus_proches['z'], c='blue', s=50, alpha=0.7)
 
-# Configuration des étiquettes
-ax.set_title("Les 10 étoiles les plus proches du soleil")
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_zlabel("Z")
-
-# Affichage des noms des étoiles
+# Affichage des noms des étoiles et des lignes verticales
+offset = 0
 for i, txt in enumerate(etoiles_plus_proches['proper']):
-    ax.text(etoiles_plus_proches['x'].iloc[i], etoiles_plus_proches['y'].iloc[i], etoiles_plus_proches['z'].iloc[i], txt, fontsize=8)
+    # Ajout d'un décalage pour les 3 premières étoiles pour éviter les superpositions des étiquettes
+    if i < 3: 
+        offset = 0.3*i
+    else: 
+        offset = 0
+
+    ax.text(etoiles_plus_proches['x'].iloc[i]-0.2, etoiles_plus_proches['y'].iloc[i], etoiles_plus_proches['z'].iloc[i]-offset, txt, fontsize=8)
+    ax.plot([etoiles_plus_proches['x'].iloc[i], etoiles_plus_proches['x'].iloc[i]], 
+            [etoiles_plus_proches['y'].iloc[i], etoiles_plus_proches['y'].iloc[i]], 
+            [etoiles_plus_proches['z'].iloc[i], -3], 
+            color='black', linestyle='--')
+
+# Configuration des étiquettes
+ax.set_title("Les 10 étoiles les plus proches du soleil", fontsize=14)  # Titre du diagramme
+ax.set_xlabel("X (parsecs)", fontsize=12)  # Nom de l'axe X avec l'unité
+ax.set_ylabel("Y (parsecs)", fontsize=12)  # Nom de l'axe Y avec l'unité
+ax.set_zlabel("Z (parsecs)", fontsize=12)  # Nom de l'axe Z avec l'unité
+
+ax.set_xlim(-3, 3)  # Modifier les limites X selon vos besoins
+ax.set_ylim(-3, 3)  # Modifier les limites Y selon vos besoins
+ax.set_zlim(-3, 3)  # Modifier les limites Z selon vos besoins
+
+# Changer l'orientation de la boîte
+ax.view_init(elev=30, azim=60)  # Par exemple, vous pouvez changer les angles selon vos préférences
 
 plt.tight_layout()
 plt.show()
