@@ -19,8 +19,8 @@ pip install -r requirements.txt
 - dynamique_des_populations__equation_differentielle_et_methode_euler.py
 - lesBoucles.py
 - les_ges_au_quebec__dataframe.py
-- mathematique_symbolique__scipy.ipynb
-- modeles_et_donnees__sckitlearn.ipynb
+- mathematique_symbolique__scipy.py
+- modeles_et_donnees__sckitlearn.py
 - structuresDeDonnes.py
 - structuresdecontrole.py
 
