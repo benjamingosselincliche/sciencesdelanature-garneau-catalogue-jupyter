@@ -299,7 +299,7 @@ while True:
 # ---
 # ## Exemple 2 : le triangle de Sierpinsky
 #
-# Le triangle de Sierpinski est un exemple classique d'une fractale. Les fractales sont des objets mathématiques ayant des formes géométriques complexes qui se répètent à différentes échelles (auto-similarité) et qui sont générées par des boucles itératives. 
+# Le triangle de Sierpinski l'exemple classique d'une fractale. Les fractales sont des objets mathématiques ayant des formes géométriques complexes qui se répètent à différentes échelles (auto-similarité) et qui sont générées par itération. 
 #
 # La création du triangle de Sierpinski implique :
 #
@@ -364,8 +364,9 @@ for n_order in range(9):
 
 
 # %%
+# Technique pour calculer le temps d'exécution d'une itération:
 # Appel de la fonction avec le nombre d'itérations (n_order) souhaité:
-for n_order in range(9):
+for n_order in range(10):
     t0 = time.time()
     sierpinski_triangle_graph(n_order)
     delta_time = time.time() - t0
