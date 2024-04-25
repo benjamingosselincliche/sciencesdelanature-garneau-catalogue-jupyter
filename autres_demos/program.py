@@ -56,31 +56,31 @@ class RockPaperScissorsApp:
             self.create_capture_button(capture_frame, classe)
 
 
-        ttk.Label(main_frame, text="Capturer :").pack(side=tk.LEFT)
+        ttk.Label(main_frame, text="Nombre d'images capturées :").pack()
         self.label_var = tk.StringVar()
         self.label_var.set("0")
-        ttk.Label(main_frame, textvariable=self.label_var).pack(side=tk.LEFT)
+        ttk.Label(main_frame, textvariable=self.label_var).pack()
 
         
-        ttk.Label(main_frame, text="Prédiction :").pack(side=tk.RIGHT)
+        ttk.Label(main_frame, text="Prédiction :").pack()
         self.prediction_label = ttk.Label(main_frame, text="")
-        self.prediction_label.pack(side=tk.RIGHT)
+        self.prediction_label.pack()
 
-        ttk.Label(main_frame, text="Confiance :").pack(side=tk.RIGHT)
-        self.confidence_label = ttk.Label(main_frame, text="")
-        self.confidence_label.pack(side=tk.RIGHT)
+        #création des autres boutons de l'interface
+        action_frame = ttk.Frame(main_frame)
+        action_frame.pack(pady=10)
 
-        train_button = ttk.Button(main_frame, text="Entraîner le modèle", command=self.train_model)
+        train_button = ttk.Button(action_frame, text="Entraîner le modèle", command=self.train_model)
         train_button.pack()
 
-        play_button = ttk.Button(main_frame, text="Jouer", command=self.play_game)
-        play_button.pack()
+        play_button = ttk.Button(action_frame, text="Jouer", command=self.play_game)
+        play_button.pack(side="left", padx=10)
 
-        play_button = ttk.Button(main_frame, text="Stop", command=self.stop_game)
-        play_button.pack()
+        play_button = ttk.Button(action_frame, text="Stop", command=self.stop_game)
+        play_button.pack(side="left", padx=10)
 
-        reset_button = ttk.Button(main_frame, text="Réinitialiser", command=self.reset_data)
-        reset_button.pack()
+        reset_button = ttk.Button(action_frame, text="Réinitialiser", command=self.reset_data)
+        reset_button.pack(side="left", padx=10)
 
 
     def create_capture_button(self, parent, sign):
@@ -191,12 +191,12 @@ class RockPaperScissorsApp:
                 # Affichez la prédiction
                 self.prediction_label.config(text=f"{signe}")
 
-                # Affichez le pourcentage de confiance
-                confidence = prediction[0][np.argmax(prediction)] * 100
-                self.confidence_label.config(text=f"{confidence:.2f}%")
-
                 if self.is_playing:
-                    self.root.after(1000, self.predict) 
+                    self.root.after(500, self.predict) 
+            else:
+                self.prediction_label.config(text="Aucune main détectée par la caméra.")
+                self.root.after(500, self.predict) 
+
 
     def play_game(self):
         self.is_playing = True
@@ -204,6 +204,7 @@ class RockPaperScissorsApp:
 
     def stop_game(self):
         self.is_playing = False
+        self.prediction_label.config(text=f"")
 
     def reset_data(self):
         self.sign_to_capture = None
@@ -211,7 +212,7 @@ class RockPaperScissorsApp:
         self.image_data = []
         self.label_var.set("0")
         self.prediction_label.config(text="")
-        self.confidence_label.config(text="")
+        self.is_playing = False
 
     def update_camera(self):
         ret, frame = self.cap.read()
@@ -232,10 +233,6 @@ class RockPaperScissorsApp:
             self.camera_label.config(image=photo)
             self.camera_label.image = photo
             self.root.after(10, self.update_camera)
-
-
-    
-        
 
     def run(self):
         self.root.mainloop()
