@@ -36,6 +36,7 @@
 # - Utiliser l'opérateur `continue` pour passer à l'itération suivante d'une boucle.
 # - Utiliser la fonction `range` pour générer une séquence d'entiers. <br>
 # Ce, afin de créer des programmes plus efficaces et modulaires.
+#
 
 
 # %% [markdown]

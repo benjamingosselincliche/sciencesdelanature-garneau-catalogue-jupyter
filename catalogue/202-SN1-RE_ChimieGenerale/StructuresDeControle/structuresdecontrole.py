@@ -1,4 +1,4 @@
-ù# ---
+# ---
 # jupyter:
 #   jupytext:
 #     formats: py:percent
