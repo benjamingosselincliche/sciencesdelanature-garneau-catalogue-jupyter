@@ -15,14 +15,16 @@ pip install -r requirements.txt
 
 ## Liste des notebooks:
 
-- cinematique__derivee_et_difference_finie.py
-- dynamique_des_populations__equation_differentielle_et_methode_euler.py
-- lesBoucles.py
-- les_ges_au_quebec__dataframe.py
-- mathematique_symbolique__scipy.py
-- modeles_et_donnees__sckitlearn.py
-- structuresDeDonnes.py
-- structuresdecontrole.py
+│   ├── boucles.ipynb
+│   ├── cinematique_derivee_et_difference_finie.ipynb
+│   ├── dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
+│   ├── ges_au_quebec_dataframe.ipynb
+│   ├── mathematique_symbolique_scipy.ipynb
+│   ├── modeles_et_donnees_sckitlearn.ipynb
+│   ├── orbite_widget.ipynb
+│   ├── roche_papier_ciseaux_apprentissage_machine.ipynb
+│   ├── structures_de_controle.ipynb
+│   └── structures_de_donnees.ipynb
 
 ## Structure de fichier:
 
@@ -32,11 +34,14 @@ pip install -r requirements.txt
 
 - **/output**: Ce répertoire contient les fichiers de sortie des codes.
 
-- **/scripts**: Ce répertoire contient les notebooks (.py).
+- **/notebook**: Ce répertoire contient les notebooks (.py).
 
 ## Configuration des notebooks (.py ou .ipynb?):
 
-Les notebooks sont enregistrés en `.py`. Pour être reconnu en notebook, ceux-ci contiennent une entête de métadonnées pour être reconnu par Jupytext.
+Les notebooks sont enregistrés en `.ipynb`. Un fichier `.ipynb` (IPython Notebook) est un format utilisé par Jupyter Notebook pour stocker du code, du texte, des visualisations et d'autres éléments interactifs dans un seul document.  
+
+
+Les notebooks peuvent être aussi enregistrés en `.py`. Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]` est une cellule de texte et la balise `%% [python]` (ou `%%`) est une cellule de code normal. 
 
 ```python
 # jupyter:
@@ -53,27 +58,7 @@ Les notebooks sont enregistrés en `.py`. Pour être reconnu en notebook, ceux-c
 #     name: python3
 ```
 
-Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]` est une cellule de texte et la balise `%% [python]` (ou `%%`) est une cellule de code normal. 
-
-Les notebooks peuvent être aussi enregistrés en `.ipynb`. Il s'agit d'un format de fichier directement reconnu comme un notebook, mais il est moins polyvalent. 
-
 Références:
 [https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
 
-
-## Notes aux développeurs:
-
-### Paired notebooks
-
-Afin de lier le fichier filename.ipynb à un fichier filename.py (de type percent):
-
-1) dans le même répertoire:
-```
-jupytext --to py:percent filename.ipynb
-```
-
-2) dans sous-répertoire scripts:
-```
-jupytext --set-formats ipynb,scripts//py:percent --sync filename.ipynb
-```
 
