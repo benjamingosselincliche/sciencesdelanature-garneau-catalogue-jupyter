@@ -15,16 +15,16 @@ pip install -r requirements.txt
 
 ## Liste des notebooks:
 
-│   ├── boucles.ipynb
-│   ├── cinematique_derivee_et_difference_finie.ipynb
-│   ├── dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
-│   ├── ges_au_quebec_dataframe.ipynb
-│   ├── mathematique_symbolique_scipy.ipynb
-│   ├── modeles_et_donnees_sckitlearn.ipynb
-│   ├── orbite_widget.ipynb
-│   ├── roche_papier_ciseaux_apprentissage_machine.ipynb
-│   ├── structures_de_controle.ipynb
-│   └── structures_de_donnees.ipynb
+-boucles.ipynb
+-cinematique_derivee_et_difference_finie.ipynb
+-dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
+-ges_au_quebec_dataframe.ipynb
+-mathematique_symbolique_scipy.ipynb
+-modeles_et_donnees_sckitlearn.ipynb
+-orbite_widget.ipynb
+-roche_papier_ciseaux_apprentissage_machine.ipynb
+-structures_de_controle.ipynb
+-structures_de_donnees.ipynb
 
 ## Structure de fichier:
 
@@ -60,5 +60,63 @@ Les notebooks peuvent être aussi enregistrés en `.py`. Le format `py:percent` 
 
 Références:
 [https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
+
+## Modifier un Catalogue Jupyter
+
+Pour modifier un catalogue Jupyter, suivez les étapes ci-dessous :
+
+### Pré-requis
+
+Assurez-vous d'avoir les éléments suivants installés et configurés :
+- Jupyter Notebook ou JupyterLab
+- Un environnement Python approprié avec les bibliothèques nécessaires
+
+### Étapes pour modifier un catalogue
+
+1. **Ouvrir le catalogue**
+   - Démarrez Jupyter Notebook ou JupyterLab en exécutant la commande suivante dans votre terminal :
+     ```bash
+     jupyter notebook
+     ```
+     ou
+     ```bash
+     jupyter lab
+     ```
+   - Naviguez vers le répertoire contenant votre catalogue Jupyter et ouvrez le fichier du catalogue (`*.ipynb`).
+
+2. **Modifier les cellules**
+   - Localisez les cellules que vous souhaitez modifier. Les cellules de type Markdown contiennent du texte, tandis que les cellules de type Code contiennent du code Python.
+   - Cliquez sur une cellule pour la sélectionner, puis commencez à modifier son contenu.
+
+3. **Exécuter le code**
+   - Après avoir apporté vos modifications, vous pouvez exécuter une cellule de code en appuyant sur `Shift + Enter`.
+   - Assurez-vous que les modifications apportées sont correctes et que le code s'exécute sans erreurs.
+
+4. **Ajouter de nouvelles cellules**
+   - Pour ajouter une nouvelle cellule, utilisez les boutons de la barre d'outils ou les raccourcis clavier (`a` pour ajouter une cellule au-dessus, `b` pour en ajouter une en dessous).
+   - Définissez le type de la nouvelle cellule (Code ou Markdown) en utilisant les options du menu déroulant dans la barre d'outils.
+
+5. **Enregistrer vos modifications**
+   - Une fois les modifications terminées, assurez-vous de sauvegarder votre travail en cliquant sur l'icône de disquette dans la barre d'outils ou en utilisant le raccourci `Ctrl + S`.
+
+### Bonnes pratiques
+
+- **Commenter le code** : Ajoutez des commentaires pour expliquer les sections de code importantes ou complexes.
+- **Versionner votre travail** : Utilisez un système de gestion de version comme Git pour suivre les modifications et collaborer avec d'autres contributeurs.
+- **Valider les changements** : Testez toujours vos modifications pour vous assurer qu'elles ne cassent pas le fonctionnement existant du catalogue.
+
+### Exemples
+
+Voici quelques exemples de modifications courantes :
+
+**Exemple 1 : Modifier une cellule Markdown**
+```markdown
+### Avant
+# Mon Titre
+Voici une description initiale.
+
+### Après
+# Mon Titre Modifié
+Voici une description mise à jour avec plus de détails.
 
 
