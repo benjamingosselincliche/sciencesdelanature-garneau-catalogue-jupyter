@@ -74,11 +74,7 @@ Assurez-vous d'avoir les éléments suivants installés et configurés :
 ### Étapes pour modifier un catalogue
 
 1. **Ouvrir le catalogue**
-   - Démarrez Jupyter Notebook ou JupyterLab en exécutant la commande suivante dans votre terminal :
-     ```bash
-     jupyter notebook
-     ```
-     ou
+   - Démarrez JupyterLab en exécutant la commande suivante dans votre terminal :
      ```bash
      jupyter lab
      ```
@@ -99,24 +95,5 @@ Assurez-vous d'avoir les éléments suivants installés et configurés :
 5. **Enregistrer vos modifications**
    - Une fois les modifications terminées, assurez-vous de sauvegarder votre travail en cliquant sur l'icône de disquette dans la barre d'outils ou en utilisant le raccourci `Ctrl + S`.
 
-### Bonnes pratiques
-
-- **Commenter le code** : Ajoutez des commentaires pour expliquer les sections de code importantes ou complexes.
-- **Versionner votre travail** : Utilisez un système de gestion de version comme Git pour suivre les modifications et collaborer avec d'autres contributeurs.
-- **Valider les changements** : Testez toujours vos modifications pour vous assurer qu'elles ne cassent pas le fonctionnement existant du catalogue.
-
-### Exemples
-
-Voici quelques exemples de modifications courantes :
-
-**Exemple 1 : Modifier une cellule Markdown**
-```markdown
-### Avant
-# Mon Titre
-Voici une description initiale.
-
-### Après
-# Mon Titre Modifié
-Voici une description mise à jour avec plus de détails.
 
 
