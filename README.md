@@ -15,16 +15,16 @@ pip install -r requirements.txt
 
 ## Liste des notebooks:
 
--boucles.ipynb
--cinematique_derivee_et_difference_finie.ipynb
--dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
--ges_au_quebec_dataframe.ipynb
--mathematique_symbolique_scipy.ipynb
--modeles_et_donnees_sckitlearn.ipynb
--orbite_widget.ipynb
--roche_papier_ciseaux_apprentissage_machine.ipynb
--structures_de_controle.ipynb
--structures_de_donnees.ipynb
+- boucles.ipynb
+- cinematique_derivee_et_difference_finie.ipynb
+- dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
+- ges_au_quebec_dataframe.ipynb
+- mathematique_symbolique_scipy.ipynb
+- modeles_et_donnees_sckitlearn.ipynb
+- orbite_widget.ipynb
+- roche_papier_ciseaux_apprentissage_machine.ipynb
+- structures_de_controle.ipynb
+- structures_de_donnees.ipynb
 
 ## Structure de fichier:
 
