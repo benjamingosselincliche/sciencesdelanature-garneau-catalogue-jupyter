@@ -46,15 +46,9 @@ Les notebooks peuvent être aussi enregistrés en `.py`. Le format `py:percent` 
 Références:
 [https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
 
-## Modifier un Catalogue Jupyter
+## Modifier un notebook
 
-Pour modifier un catalogue Jupyter, suivez les étapes ci-dessous :
-
-### Pré-requis
-
-Assurez-vous d'avoir les éléments suivants installés et configurés :
-- Jupyter Notebook ou JupyterLab
-- Un environnement Python approprié avec les bibliothèques nécessaires
+Pour modifier un notebook, suivez les étapes ci-dessous :
 
 ### Étapes pour modifier un catalogue
 
@@ -66,15 +60,14 @@ Assurez-vous d'avoir les éléments suivants installés et configurés :
    - Naviguez vers le répertoire contenant votre catalogue Jupyter et ouvrez le fichier du catalogue (`*.ipynb`).
 
 2. **Modifier les cellules**
-   - Localisez les cellules que vous souhaitez modifier. Les cellules de type Markdown contiennent du texte, tandis que les cellules de type Code contiennent du code Python.
+   - Les cellules de type Markdown contiennent du texte, tandis que les cellules de type Code contiennent du code Python.
    - Cliquez sur une cellule pour la sélectionner, puis commencez à modifier son contenu.
 
 3. **Exécuter le code**
-   - Après avoir apporté vos modifications, vous pouvez exécuter une cellule de code en appuyant sur `Shift + Enter`.
-   - Assurez-vous que les modifications apportées sont correctes et que le code s'exécute sans erreurs.
+   - Vous pouvez exécuter une cellule de code en appuyant sur `Shift + Enter`.
 
 4. **Ajouter de nouvelles cellules**
-   - Pour ajouter une nouvelle cellule, utilisez les boutons de la barre d'outils ou les raccourcis clavier (`a` pour ajouter une cellule au-dessus, `b` pour en ajouter une en dessous).
+   - Utilisez les boutons de la barre d'outils ou les raccourcis clavier (`a` pour ajouter une cellule au-dessus, `b` pour en ajouter une en dessous).
    - Définissez le type de la nouvelle cellule (Code ou Markdown) en utilisant les options du menu déroulant dans la barre d'outils.
 
 5. **Enregistrer vos modifications**
