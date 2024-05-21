@@ -43,21 +43,6 @@ Les notebooks sont enregistrés en `.ipynb`. Un fichier `.ipynb` (IPython Notebo
 
 Les notebooks peuvent être aussi enregistrés en `.py`. Le format `py:percent` permet de spécifier la nature des cellules. La balise `%% [markdown]` est une cellule de texte et la balise `%% [python]` (ou `%%`) est une cellule de code normal. 
 
-```python
-# jupyter:
-#   jupytext:
-#     formats: py:percent
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.15.2
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-```
-
 Références:
 [https://jupytext.readthedocs.io/en/latest/](https://jupytext.readthedocs.io/en/latest/)
 
