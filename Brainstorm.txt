@@ -1,3 +1,0 @@
-- Monter des démos de programmes python qui seront utiles dans le cours de programmation donné en science de la nature
-- Monter un catalogue jupyter qui permet aux enseignants de science de la nature de montrer des concepts en utilisant la programmation python (simple).
-- Créer un catalogue qui explique chapitre par chapitre les bases de la programmation en python (opérateurs logiques, variable, type de variables, fonctions, etc.)
