@@ -19,7 +19,7 @@ pip install -r requirements.txt
 - cinematique_derivee_et_difference_finie.ipynb
 - dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
 - ges_au_quebec_dataframe.ipynb
-- mathematique_symbolique_scipy.ipynb
+- mathematique_symbolique_sympy.ipynb
 - modeles_et_donnees_sckitlearn.ipynb
 - orbite_widget.ipynb
 - roche_papier_ciseaux_apprentissage_machine.ipynb
