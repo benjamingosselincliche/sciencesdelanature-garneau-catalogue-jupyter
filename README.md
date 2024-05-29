@@ -2,7 +2,7 @@
 
 # Sciences de la Nature - Garneau - Catalogue Jupyter
 
-Démonstrations de python utiles pour les enseignants de Science de la nature.
+Démonstrations utiles pour les enseignants et enseignantes en Science de la nature.
 
 ## Installation de l'environnement virtuel:
 
