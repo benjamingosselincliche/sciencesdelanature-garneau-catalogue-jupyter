@@ -6,9 +6,17 @@ Démonstrations utiles pour les enseignants et enseignantes en Science de la nat
 
 ## Installation de l'environnement virtuel:
 
+Pour MacOS/Linux:
 ```python
 python -m venv venv
 source venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+Pour Windows:
+```python
+python -m venv venv
+venv/Scripts/activate.bat
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
