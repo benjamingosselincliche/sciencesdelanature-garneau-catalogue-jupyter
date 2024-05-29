@@ -65,7 +65,7 @@ Pour modifier un notebook, suivez les étapes ci-dessous :
      ```bash
      jupyter lab
      ```
-   - Naviguez vers le répertoire contenant votre catalogue Jupyter et ouvrez le fichier du catalogue (`*.ipynb`).
+   - Naviguez vers le répertoire et ouvrez le fichier du catalogue (`*.ipynb`).
 
 2. **Modifier les cellules**
    - Les cellules de type Markdown contiennent du texte, tandis que les cellules de type Code contiennent du code Python.
