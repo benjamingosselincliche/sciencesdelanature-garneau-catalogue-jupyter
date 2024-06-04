@@ -15,13 +15,13 @@ pip install -r requirements.txt
 
 ### Option 2: environnement virtuel:
 
-Pour MacOS ou Linux:
+Dans un terminal MacOS ou Linux:
 ```bash
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-Pour Windows :
+Dans un terminal Windows :
 ```bash
 python -m venv venv
 venv/Scripts/activate.bat
