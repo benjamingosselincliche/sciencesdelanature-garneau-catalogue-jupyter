@@ -6,25 +6,39 @@ Démonstrations utiles pour les enseignants et enseignantes en Science de la nat
 
 ## Installation de l'environnement:
 
+1. Télécharger le fichier zip (onglet Code).
+2. Décompresser le fichier zip dans votre répertoire désiré.
+3. Installer les librairies selon l'une des deux options suivantes:
+
 ### Option 1: environnement global:
 
-Dans un terminal MacOS, Linux ou Windows:
+Dans un terminal MacOS ou Linux:
 ```bash
+cd /chemin-vers-le-repertoire/SciencesDeLaNature_Garneau_Catalogue_Jupyter-main
 pip install -r requirements.txt
 ```
+
+Dans un terminal Windows (cmd) :
+```bash
+cd \chemin-vers-le-repertoire\SciencesDeLaNature_Garneau_Catalogue_Jupyter-main
+pip install -r requirements.txt
+```
+
 
 ### Option 2: environnement virtuel:
 
 Dans un terminal MacOS ou Linux:
 ```bash
+cd /chemin-vers-le-repertoire/SciencesDeLaNature_Garneau_Catalogue_Jupyter-main
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-Dans un terminal Windows :
+Dans un terminal Windows (cmd) :
 ```bash
+cd \chemin-vers-le-repertoire\SciencesDeLaNature_Garneau_Catalogue_Jupyter-main
 python -m venv venv
-venv/Scripts/activate.bat
+.\venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
