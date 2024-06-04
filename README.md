@@ -4,20 +4,27 @@
 
 Démonstrations utiles pour les enseignants et enseignantes en Science de la nature.
 
-## Installation de l'environnement virtuel:
+## Installation de l'environnement:
 
-Pour MacOS/Linux:
-```python
-python -m venv venv
-source venv/bin/activate
-python -m pip install --upgrade pip
+### Option 1: environnement global:
+
+Dans un terminal MacOS, Linux ou Windows:
+```bash
 pip install -r requirements.txt
 ```
-Pour Windows:
-```python
+
+### Option 2: environnement virtuel:
+
+Pour MacOS ou Linux:
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+Pour Windows :
+```bash
 python -m venv venv
 venv/Scripts/activate.bat
-python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -62,8 +69,14 @@ Pour modifier un notebook, suivez les étapes ci-dessous :
 
 1. **Ouvrir le catalogue**
    - Démarrez JupyterLab en exécutant la commande suivante dans votre terminal :
+   
+     MacOS/Linux:
      ```bash
      jupyter lab
+     ```
+     Windows:
+     ```bash
+     python -m jupyterlab
      ```
    - Naviguez vers le répertoire et ouvrez le fichier du catalogue (`*.ipynb`).
 
