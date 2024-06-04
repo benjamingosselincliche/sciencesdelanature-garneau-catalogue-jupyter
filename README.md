@@ -35,7 +35,7 @@ pip install -r requirements.txt
 - dynamique_des_populations_equation_differentielle_et_methode_euler.ipynb
 - ges_au_quebec_dataframe.ipynb
 - mathematique_symbolique_sympy.ipynb
-- modeles_et_donnees_sckitlearn.ipynb
+- modeles_et_donnees_scikitlearn.ipynb
 - orbite_widget.ipynb
 - roche_papier_ciseaux_apprentissage_machine.ipynb
 - structures_de_controle.ipynb
