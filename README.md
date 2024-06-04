@@ -70,7 +70,7 @@ Pour modifier un notebook, suivez les étapes ci-dessous :
 1. **Ouvrir le catalogue**
    - Démarrez JupyterLab en exécutant la commande suivante dans votre terminal :
 
-     MacOS/Linux:
+     MacOS ou Linux:
      ```bash
      jupyter lab
      ```
