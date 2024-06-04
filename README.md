@@ -69,7 +69,7 @@ Pour modifier un notebook, suivez les étapes ci-dessous :
 
 1. **Ouvrir le catalogue**
    - Démarrez JupyterLab en exécutant la commande suivante dans votre terminal :
-   
+
      MacOS/Linux:
      ```bash
      jupyter lab
@@ -88,7 +88,7 @@ Pour modifier un notebook, suivez les étapes ci-dessous :
    - Vous pouvez exécuter une cellule de code en appuyant sur `Shift + Enter`.
 
 4. **Ajouter de nouvelles cellules**
-   - Utilisez les boutons de la barre d'outils ou les raccourcis clavier (`a` pour ajouter une cellule au-dessus, `b` pour en ajouter une en dessous).
+   - Utilisez les boutons de la barre d'outils ou les raccourcis clavier (par exemple`a` pour ajouter une cellule au-dessus, `b` pour en ajouter une en dessous).
    - Définissez le type de la nouvelle cellule (Code ou Markdown) en utilisant les options du menu déroulant dans la barre d'outils.
 
 5. **Enregistrer vos modifications**
