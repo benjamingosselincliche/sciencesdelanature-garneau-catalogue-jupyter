@@ -1,0 +1,105 @@
+Traceback (most recent call last):
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/Benjamin/Substancia/projets/catalogue-jupyter-garneau/venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#Dans cette cellule, on simule le processus du contrôle de température
+import time
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Définition de la plage horaire (de minuit à minuit)
+start_time = 0
+end_time = 24 * 60  # Nombre de minutes dans une journée (1440 minutes)
+
+# Définition de l'index pour la boucle while:
+time_index = start_time
+
+# Variables pour compter le nombre de minutes pour chaque état du système de contrôle de température et pour l'estimation du coût total
+count_minute_chauffage = 0
+count_minute_inactif = 0
+count_minute_refroidissement = 0
+puissance_systeme = 20  #kW
+cout_kWh = 0.06 #$
+
+# La boucle while exécute un processus pour la journée entière
+while True:
+    # On simule la mesure de la température avec un capteur:
+    temperature_mesuree = data[time_index][1]
+
+    # On fixe l'état du système de contrôle de température en fonction de la température mesurée et on compte le nombre de minute dans l'état:
+    if temperature_mesuree <= 14:
+        etat_systeme_temperature_controle = "chauffage"
+        count_minute_chauffage += 1
+    elif 14 < temperature_mesuree < 28:
+        etat_systeme_temperature_controle = "inactif"
+        count_minute_inactif += 1
+    else:
+        etat_systeme_temperature_controle = "refroidissement"
+        count_minute_refroidissement += 1
+
+    # On affiche le démarrage du système
+    if time_index == 0:
+        print(f'Le système a démarré à {time_index} min.' + '\n' + '-'*50)
+        
+
+    # On affiche dynamiquement le temps, la température mesurée et l'état du système de contrôle de température
+    print(f'Temps: {data[time_index][0]} min ; Température : {data[time_index][1]:.3f} degré celsius ;  État système contrôle température : {etat_systeme_temperature_controle}'+' '*100, end='\r')
+
+    # On simule un écoulement du temps (met en pause l'exécution du programme pendant 0.01 seconde et incrémente time_index)
+    time.sleep(.01)
+    time_index += 1
+
+    # On affiche un message indiquant le rapport du système en fin de journée et on arrête l'exécution du programme:
+    if time_index == end_time:
+        #Calcul du cout d'utilisation
+        nb_kWh = puissance_systeme*(count_minute_chauffage + count_minute_refroidissement)/60
+        cout = cout_kWh*nb_kWh
+        
+        print(' '*100, end ='\r')
+        print(f"Le système s'est arrêté à {time_index} min." + '\n' + '-'*50)
+        print("Rapport système:")
+        print("Le système de contrôle de température a fonctionné sans interruption aujourd'hui!")
+        print(f'Nombre de minutes utilisées en mode "chauffage": {count_minute_chauffage} min')
+        print(f'Nombre de minutes utilisées en mode "refroidissement": {count_minute_refroidissement} min')
+        print(f'Nombre de minutes en mode "inactif": {count_minute_inactif} min')
+        print(f'Énergie totale estimée: {nb_kWh:.2f} kWh')
+        print(f'Coût total de fonctionnement estimé: {cout:.2f} $')
+        # On termine la boucle. 
+        break  
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[16][39m[32m, line 3[39m
+[32m      1[39m [38;5;66;03m#Dans cette cellule, on simule le processus du contrôle de température[39;00m
+[32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mtime[39;00m
+[32m----> [39m[32m3[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
+[32m      4[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
+[32m      6[39m [38;5;66;03m# Définition de la plage horaire (de minuit à minuit)[39;00m
+
+[31mModuleNotFoundError[39m: No module named 'matplotlib'
+

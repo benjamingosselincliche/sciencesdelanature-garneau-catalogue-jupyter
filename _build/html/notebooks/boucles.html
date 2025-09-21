@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Boucles &#8212; jupyterbook with numbered equations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a9041a22" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/boucles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="1. Structures de données" href="structures_de_donnees.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../root-presentation.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">jupyterbook with numbered equations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../root-presentation.html">
+                    Présentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structures_de_donnees.html">1. Structures de données <br/></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Boucles</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/benjamingosselincliche/sciencesdelanature-garneau-catalogue-jupyter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Dépôt source"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/boucles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Boucles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs">2.1. Objectifs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-for-pour">2.2. Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> (POUR)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-while-tant-que">2.3. Boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> (TANT QUE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-break-sortir-de-la-boucle">2.4. Opération <code class="docutils literal notranslate"><span class="pre">break</span></code> (sortir de la boucle)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-continue-passer-a-l-iteration-suivante">2.5. Opération <code class="docutils literal notranslate"><span class="pre">continue</span></code> (passer à l’itération suivante)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-appliques">2.6. Exemples appliqués</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-la-temperature-d-une-serre">Exemple 1 : la température d’une serre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-le-triangle-de-sierpinsky">Exemple 2 : le triangle de Sierpinsky</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="boucles">
+<h1><span class="section-number">2. </span>Boucles<a class="headerlink" href="#boucles" title="Lien vers cette rubrique">#</a></h1>
+<hr class="docutils" />
+<br>
+<div style="text-align: center;">
+    <div style="display: inline-block; position: relative; width: 350px;">
+        <img src="../img/banner.jpg" alt="Dessin" style="width: 100%;"/>
+        <p style="text-align: center; margin-top: 5px;">
+            <span style="font-style: italic; font-size: 16px;"> Tant qu'il se doit </span><br/>
+            <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+        </p>
+    </div>
+</div><hr class="docutils" />
+<section id="objectifs">
+<h2><span class="section-number">2.1. </span>Objectifs:<a class="headerlink" href="#objectifs" title="Lien vers cette rubrique">#</a></h2>
+<ul class="simple">
+<li><p>Utiliser les <code class="docutils literal notranslate"><span class="pre">Listes</span></code></p></li>
+<li><p>Utiliser les <code class="docutils literal notranslate"><span class="pre">Tuples</span></code></p></li>
+<li><p>Utiliser l’opérateur <code class="docutils literal notranslate"><span class="pre">continue</span></code> pour passer à l’itération suivante d’une boucle.</p></li>
+<li><p>Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">range</span></code> pour générer une séquence d’entiers. <br>
+Ce, afin de créer des programmes plus efficaces et modulaires.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="boucle-for-pour">
+<h2><span class="section-number">2.2. </span>Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> (POUR)<a class="headerlink" href="#boucle-for-pour" title="Lien vers cette rubrique">#</a></h2>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est utilisée pour répéter un bloc de code un nombre spécifié de fois.<br />
+La syntaxe de base est la suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="c1"># Bloc de code à répéter</span>
+</pre></div>
+</div>
+<p>On peut traduire la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> par « POUR chaque élément de la séquence, exécutez le bloc de code ».  <br>
+Par exemple, pour effectuer 10 fois une tâche spécifique, on peut utiliser la boucle suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dans cet exemple, <code class="docutils literal notranslate"><span class="pre">i</span></code> est la variable d’itération et <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> est la séquence d’entiers de 0 à 9.  <br>
+On peut également utiliser la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour répéter un bloc de code pour chaque élément d’une liste ou d’un tuple.  <br>
+Tant que la séquence est itérable, la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> peut être utilisée pour répéter un bloc de code sur ses éléments.  <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Afficher les entiers de 0 à 9</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parcourir une chaîne de caractères et les afficher un par un</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B
+o
+n
+j
+o
+u
+r
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parcourir un dictionnaire et afficher les clés et les valeurs</span>
+<span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Jean&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;ville&#39;</span><span class="p">:</span> <span class="s1">&#39;Paris&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">person</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nom: Jean
+âge: 30
+ville: Paris
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parcourir une liste avec l&#39;index des éléments (fonction enumerate)</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;banane&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Fruit:&quot;</span><span class="p">,</span> <span class="n">fruit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index: 0 Fruit: pomme
+Index: 1 Fruit: banane
+Index: 2 Fruit: orange
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parcourir une liste avec un pas spécifique</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+2
+4
+6
+8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Une boucle dans une boucle:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;i = </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> ; j = </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i = 0 ; j = 0
+i = 0 ; j = 1
+i = 0 ; j = 2
+i = 0 ; j = 3
+i = 0 ; j = 4
+i = 1 ; j = 0
+i = 1 ; j = 1
+i = 1 ; j = 2
+i = 1 ; j = 3
+i = 1 ; j = 4
+i = 2 ; j = 0
+i = 2 ; j = 1
+i = 2 ; j = 2
+i = 2 ; j = 3
+i = 2 ; j = 4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="boucle-while-tant-que">
+<h2><span class="section-number">2.3. </span>Boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> (TANT QUE)<a class="headerlink" href="#boucle-while-tant-que" title="Lien vers cette rubrique">#</a></h2>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> est utilisée pour répéter un bloc de code tant qu’une condition spécifiée est vraie.  <br>
+La syntaxe de base est la suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># Bloc de code à répéter</span>
+</pre></div>
+</div>
+<p>On peut traduire la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> par « TANT QUE la condition est vraie, exécutez le bloc de code ».  <br>
+La condition est une expression booléenne, cela signifie que le résultat de l’expression doit être <code class="docutils literal notranslate"><span class="pre">True</span></code> pour que le bloc de code soit exécuté.  <br>
+Par exemple, pour afficher les entiers de 0 à 9, on peut utiliser la boucle suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Dans    cet exemple, <code class="docutils literal notranslate"><span class="pre">i</span></code> est la variable d’itération et <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> est la condition.  <br>
+<strong>Remarque: Il est important de s’assurer que la condition deviendra <code class="docutils literal notranslate"><span class="pre">False</span></code> à un moment donné pour éviter une boucle infinie non désirée.</strong>  <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comptage jusqu&#39;à 5 en utilisant une boucle while</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parcours d&#39;une liste avec une boucle while (la fonction len() retourne la longueur de la liste)</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;bd&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+a
+3
+bd
+5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;une séquence de puissances de 2 jusqu&#39;à ce qu&#39;elles deviennent supérieures à 100</span>
+<span class="n">power_of_two</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">power_of_two</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">power_of_two</span><span class="p">)</span>
+    <span class="n">power_of_two</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+4
+8
+16
+32
+64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;une boucle infinie</span>
+<span class="c1"># import time</span>
+<span class="c1"># import sys</span>
+
+<span class="c1"># i = 0</span>
+<span class="c1"># while True:</span>
+<span class="c1">#     # On fixe un délai de 1 seconde par itération pour ne pas surcharger la mémoire vive</span>
+<span class="c1">#     time.sleep(1)</span>
+<span class="c1">#     # On incrémente l&#39;index</span>
+<span class="c1">#     i += 1</span>
+<span class="c1">#     print(f&quot;Secondes écoulées = {i} s. La boucle ne s&#39;arrêtera jamais. Il faut gérer la mémoire vive en conséquence. (Pour arrêter le processus, cliquer sur le bouton stop - interrupt the kernel) &quot;,end=&#39;\r&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="operation-break-sortir-de-la-boucle">
+<h2><span class="section-number">2.4. </span>Opération <code class="docutils literal notranslate"><span class="pre">break</span></code> (sortir de la boucle)<a class="headerlink" href="#operation-break-sortir-de-la-boucle" title="Lien vers cette rubrique">#</a></h2>
+<p>Lorsque l’opération <code class="docutils literal notranslate"><span class="pre">break</span></code> est rencontrée, le programme sort de la boucle et exécute le code qui suit.  <br>
+L’opération <code class="docutils literal notranslate"><span class="pre">break</span></code> peut être utilisée dans les boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> et <code class="docutils literal notranslate"><span class="pre">while</span></code>.  <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dans cet exemple, le programme affiche les entiers de 0 à 2, puis sort de la boucle lorsque `i` est égal à 3.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boucle infinie avec une condition de sortie</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur actuelle de x :&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lift off!&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valeur actuelle de x : 10
+Valeur actuelle de x : 9
+Valeur actuelle de x : 8
+Valeur actuelle de x : 7
+Valeur actuelle de x : 6
+Valeur actuelle de x : 5
+Valeur actuelle de x : 4
+Valeur actuelle de x : 3
+Valeur actuelle de x : 2
+Valeur actuelle de x : 1
+Lift off!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="operation-continue-passer-a-l-iteration-suivante">
+<h2><span class="section-number">2.5. </span>Opération <code class="docutils literal notranslate"><span class="pre">continue</span></code> (passer à l’itération suivante)<a class="headerlink" href="#operation-continue-passer-a-l-iteration-suivante" title="Lien vers cette rubrique">#</a></h2>
+<p>Lorsque l’opération <code class="docutils literal notranslate"><span class="pre">continue</span></code> est rencontrée, le programme passe à l’itération suivante de la boucle sans exécuter le code qui suit.  <br>
+L’opération <code class="docutils literal notranslate"><span class="pre">continue</span></code> peut être utilisée dans les boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> et <code class="docutils literal notranslate"><span class="pre">while</span></code>.  <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dans cet exemple, le programme affiche les entiers de 0 à 9, sauf 5.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Afficher uniquement les nombres pairs dans la plage de 1 à 10</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+6
+8
+10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exemples-appliques">
+<h2><span class="section-number">2.6. </span>Exemples appliqués<a class="headerlink" href="#exemples-appliques" title="Lien vers cette rubrique">#</a></h2>
+<hr class="docutils" />
+<section id="exemple-1-la-temperature-d-une-serre">
+<h3>Exemple 1 : la température d’une serre<a class="headerlink" href="#exemple-1-la-temperature-d-une-serre" title="Lien vers cette rubrique">#</a></h3>
+<p>Dans cet exemple, on simule un système de contrôle de température dans une serre. Un capteur (thermomètre numérique) mesure la température à chaque minutes de la journée. Un système de contrôle de température obéit au commande suivante:</p>
+<ol class="arabic simple">
+<li><p>mode « chauffage » si T &lt;= 14 °C ;</p></li>
+<li><p>mode « refroidissement » si T &gt;= 28 °C ;</p></li>
+<li><p>mode « inactif » si  14 °C &lt; T &lt; 28 °C.</p></li>
+</ol>
+<p>Ainsi, une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> est utilisée pour que le processus fonctionne toute la journée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dans cette cellule, on importe des données qui simulent la température en fonction du temps</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span><span class="p">,</span> <span class="n">clear_output</span>
+
+<span class="c1"># Charger les données à partir du fichier CSV dans un DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/donnees_temperature.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tableau de la température en fonction du temps:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Convertir le DataFrame en un tableau NumPy</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Afficher le fichier PDF</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Graphique:&quot;</span><span class="p">)</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;../img/variation_temperature.pdf&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
+Tableau de la température en fonction du temps:
+      Temps (min)  Température (degrés Celsius)
+0             0.0                         8.000
+1             1.0                         8.000
+2             2.0                         8.000
+3             3.0                         8.001
+4             4.0                         8.002
+...           ...                           ...
+1435       1435.0                         8.003
+1436       1436.0                         8.002
+1437       1437.0                         8.001
+1438       1438.0                         8.000
+1439       1439.0                         8.000
+
+[1440 rows x 2 columns]
+--------------------------------------------------
+Graphique:
+</pre></div>
+</div>
+<div class="output text_html">
+        <iframe
+            width="600"
+            height="400"
+            src="../img/variation_temperature.pdf"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dans cette cellule, on simule le processus du contrôle de température</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Définition de la plage horaire (de minuit à minuit)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span>  <span class="c1"># Nombre de minutes dans une journée (1440 minutes)</span>
+
+<span class="c1"># Définition de l&#39;index pour la boucle while:</span>
+<span class="n">time_index</span> <span class="o">=</span> <span class="n">start_time</span>
+
+<span class="c1"># Variables pour compter le nombre de minutes pour chaque état du système de contrôle de température et pour l&#39;estimation du coût total</span>
+<span class="n">count_minute_chauffage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count_minute_inactif</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count_minute_refroidissement</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">puissance_systeme</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1">#kW</span>
+<span class="n">cout_kWh</span> <span class="o">=</span> <span class="mf">0.06</span> <span class="c1">#$</span>
+
+<span class="c1"># La boucle while exécute un processus pour la journée entière</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># On simule la mesure de la température avec un capteur:</span>
+    <span class="n">temperature_mesuree</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">time_index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># On fixe l&#39;état du système de contrôle de température en fonction de la température mesurée et on compte le nombre de minute dans l&#39;état:</span>
+    <span class="k">if</span> <span class="n">temperature_mesuree</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">:</span>
+        <span class="n">etat_systeme_temperature_controle</span> <span class="o">=</span> <span class="s2">&quot;chauffage&quot;</span>
+        <span class="n">count_minute_chauffage</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mi">14</span> <span class="o">&lt;</span> <span class="n">temperature_mesuree</span> <span class="o">&lt;</span> <span class="mi">28</span><span class="p">:</span>
+        <span class="n">etat_systeme_temperature_controle</span> <span class="o">=</span> <span class="s2">&quot;inactif&quot;</span>
+        <span class="n">count_minute_inactif</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">etat_systeme_temperature_controle</span> <span class="o">=</span> <span class="s2">&quot;refroidissement&quot;</span>
+        <span class="n">count_minute_refroidissement</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># On affiche le démarrage du système</span>
+    <span class="k">if</span> <span class="n">time_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Le système a démarré à </span><span class="si">{</span><span class="n">time_index</span><span class="si">}</span><span class="s1"> min.&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+        
+
+    <span class="c1"># On affiche dynamiquement le temps, la température mesurée et l&#39;état du système de contrôle de température</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temps: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="n">time_index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> min ; Température : </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="n">time_index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> degré celsius ;  État système contrôle température : </span><span class="si">{</span><span class="n">etat_systeme_temperature_controle</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># On simule un écoulement du temps (met en pause l&#39;exécution du programme pendant 0.01 seconde et incrémente time_index)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">.01</span><span class="p">)</span>
+    <span class="n">time_index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># On affiche un message indiquant le rapport du système en fin de journée et on arrête l&#39;exécution du programme:</span>
+    <span class="k">if</span> <span class="n">time_index</span> <span class="o">==</span> <span class="n">end_time</span><span class="p">:</span>
+        <span class="c1">#Calcul du cout d&#39;utilisation</span>
+        <span class="n">nb_kWh</span> <span class="o">=</span> <span class="n">puissance_systeme</span><span class="o">*</span><span class="p">(</span><span class="n">count_minute_chauffage</span> <span class="o">+</span> <span class="n">count_minute_refroidissement</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
+        <span class="n">cout</span> <span class="o">=</span> <span class="n">cout_kWh</span><span class="o">*</span><span class="n">nb_kWh</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le système s&#39;est arrêté à </span><span class="si">{</span><span class="n">time_index</span><span class="si">}</span><span class="s2"> min.&quot;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rapport système:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le système de contrôle de température a fonctionné sans interruption aujourd&#39;hui!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nombre de minutes utilisées en mode &quot;chauffage&quot;: </span><span class="si">{</span><span class="n">count_minute_chauffage</span><span class="si">}</span><span class="s1"> min&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nombre de minutes utilisées en mode &quot;refroidissement&quot;: </span><span class="si">{</span><span class="n">count_minute_refroidissement</span><span class="si">}</span><span class="s1"> min&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nombre de minutes en mode &quot;inactif&quot;: </span><span class="si">{</span><span class="n">count_minute_inactif</span><span class="si">}</span><span class="s1"> min&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Énergie totale estimée: </span><span class="si">{</span><span class="n">nb_kWh</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> kWh&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Coût total de fonctionnement estimé: </span><span class="si">{</span><span class="n">cout</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> $&#39;</span><span class="p">)</span>
+        <span class="c1"># On termine la boucle. </span>
+        <span class="k">break</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Dans cette cellule, on simule le processus du contrôle de température</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Définition de la plage horaire (de minuit à minuit)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exemple-2-le-triangle-de-sierpinsky">
+<h3>Exemple 2 : le triangle de Sierpinsky<a class="headerlink" href="#exemple-2-le-triangle-de-sierpinsky" title="Lien vers cette rubrique">#</a></h3>
+<p>Le triangle de Sierpinski l’exemple classique d’une fractale. Les fractales sont des objets mathématiques ayant des formes géométriques complexes qui se répètent à différentes échelles (auto-similarité) et qui sont générées par itération.</p>
+<p>La création du triangle de Sierpinski implique :</p>
+<ol class="arabic simple">
+<li><p>Étape initiale : Définition d’un triangle équilatéral qui sert de racine.</p></li>
+<li><p>Itération (ici une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>): À chaque itération, chaque triangle est divisé en trois triangles plus petits, et le processus se poursuit jusqu’à ce qu’on atteigne le niveau de détail souhaité (l’ordre du triangle).</p></li>
+</ol>
+<p>Le résultat est un motif fractal auto-similaire, où chaque partie de la figure ressemble à l’ensemble complet à une échelle plus petite.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sierpinski_triangle</span><span class="p">(</span><span class="n">n_order</span><span class="p">):</span>
+    <span class="c1">#Sommets de départ du triangle</span>
+    <span class="n">triangles_vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">]]])</span>
+
+    <span class="c1">#Boucle for pour générer le triangle de Sierpinski d&#39;ordre n_order</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_order</span><span class="p">):</span>
+        <span class="c1"># Liste pour stocker les nouveaux sommets des triangles d&#39;ordre i formés par les points milieux des triangles d&#39;ordre i-1</span>
+        <span class="n">new_triangles_vertices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Boucle for sur les sommets des triangles d&#39;ordre i-1</span>
+        <span class="k">for</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">triangles_vertices</span><span class="p">:</span>
+            <span class="c1"># Calcul des points milieux</span>
+            <span class="n">midpoints</span> <span class="o">=</span> <span class="p">[(</span><span class="n">v0</span> <span class="o">+</span> <span class="n">v1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">v2</span> <span class="o">+</span> <span class="n">v0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="c1"># Ajout des sommets des triangles d&#39;ordre i avec la fusion de liste extend</span>
+            <span class="n">new_triangles_vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">v0</span><span class="p">,</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
+                                 <span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+                                 <span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">midpoints</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+        <span class="c1"># Remplacement des sommets des triangles d&#39;ordre i-1 par les nouveaux sommets des triangles d&#39;ordre i</span>
+        <span class="n">triangles_vertices</span> <span class="o">=</span> <span class="n">new_triangles_vertices</span>
+
+    <span class="c1">#La fonction retourne les sommets des triangles d&#39;ordre n_order</span>
+    <span class="k">return</span> <span class="n">triangles_vertices</span>
+
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">sierpinski_triangle_graph</span><span class="p">(</span><span class="n">n_order</span><span class="p">):</span>
+
+    <span class="c1"># On appelle la fonction sierpinski_triangle:</span>
+    <span class="n">triangles_vertices</span> <span class="o">=</span> <span class="n">sierpinski_triangle</span><span class="p">(</span><span class="n">n_order</span><span class="p">)</span>
+
+    <span class="c1">#Création de la figure:</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Triangle de Sierpinski : ordre </span><span class="si">{</span><span class="n">n_order</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9660254037844386</span><span class="p">)</span>
+
+    <span class="c1">#Boucle for pour tracer tous les triangles:</span>
+    <span class="k">for</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">triangles_vertices</span><span class="p">:</span>
+        <span class="n">triangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">([</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">],</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+
+<span class="c1"># Appel de la fonction avec le nombre d&#39;itérations (n_order) souhaité:</span>
+<span class="k">for</span> <span class="n">n_order</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">sierpinski_triangle_graph</span><span class="p">(</span><span class="n">n_order</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Technique pour calculer le temps d&#39;exécution d&#39;une itération:</span>
+<span class="c1"># Appel de la fonction avec le nombre d&#39;itérations (n_order) souhaité:</span>
+<span class="k">for</span> <span class="n">n_order</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">sierpinski_triangle_graph</span><span class="p">(</span><span class="n">n_order</span><span class="p">)</span>
+    <span class="n">delta_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;temps de calcul pour l&#39;ordre </span><span class="si">{</span><span class="n">n_order</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">delta_time</span><span class="si">}</span><span class="s2"> s&quot;</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="structures_de_donnees.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Structures de données <br></p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs">2.1. Objectifs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-for-pour">2.2. Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> (POUR)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-while-tant-que">2.3. Boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> (TANT QUE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-break-sortir-de-la-boucle">2.4. Opération <code class="docutils literal notranslate"><span class="pre">break</span></code> (sortir de la boucle)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-continue-passer-a-l-iteration-suivante">2.5. Opération <code class="docutils literal notranslate"><span class="pre">continue</span></code> (passer à l’itération suivante)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-appliques">2.6. Exemples appliqués</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-la-temperature-d-une-serre">Exemple 1 : la température d’une serre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-le-triangle-de-sierpinsky">Exemple 2 : le triangle de Sierpinsky</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

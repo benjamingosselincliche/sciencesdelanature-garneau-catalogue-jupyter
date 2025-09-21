@@ -1,0 +1,91 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+# Title of the book
+title: Catalogue jupyter
+# Author name (can be left empty)
+author: ""
+# Copyright year
+copyright: "2025"
+# Path to the logo used in the book
+logo: ./_static/img/logo.png
+  
+# auto (par défaut) → exécute si besoin.
+# force → toujours ré-exécuter.
+# off → ne jamais exécuter, seulement afficher les sorties déjà présentes dans .ipynb.
+# cache → utilise un cache (_build/.jupyter_cache) pour éviter de ré-exécuter si rien n’a changé.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: auto
+  timeout: 120
+#  exclude_patterns:
+#    - '*~'  # Uncomment to exclude temporary or backup files
+
+# Only build files listed in the table of contents
+only_build_toc_files: true
+
+# LaTeX / PDF output settings
+latex:
+  use_jupyterbook_latex: true  # Use Jupyter Book's LaTeX template
+  latex_documents:
+    targetname: book.tex  # Name of the generated LaTeX/PDF file
+
+# Add a BibTeX file for citations
+bibtex_bibfiles:
+  - ./references.bib
+
+# # Launch buttons (e.g., Binder, Colab)
+# launch_buttons:
+#   binderhub_url: ""  # URL for BinderHub
+# #  notebook_interface: example.example.fr"  # Optional notebook interface
+# #  binderhub_url: "https://github.com/..."  # Example Binder URL
+
+# # Repository / web information (optional)
+repository:
+  url: https://github.com/benjamingosselincliche/sciencesdelanature-garneau-catalogue-jupyter # URL of the online repository
+  path_to_book: ""  # Optional path to book relative to repository root
+  branch: main  # Branch to use for links
+
+# GitHub / HTML settings
+html:
+  footer: false  # Disable default footer
+  # custom_footer: "<p>Text</p>"  # Uncomment to add custom HTML footer
+  # use_issues_button: true  # Uncomment to add GitHub issues button
+  use_repository_button: true  # Uncomment to add repository button
+  # home_page_in_navbar  : true  # Include home page link in navbar
+  # baseurl : https://example.com  # Base URL for your site
+  # extra_navbar: Created with <a href="https://jupyterbook.org">Jupyter Book</a>
+  extra_css: _static/custom.css  # Path to custom CSS file
+
+# Sphinx configuration
+sphinx:
+  config:
+    language: fr  # Language of the book
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # MathJax library for rendering math
+    html_show_copyright: false  # Hide copyright
+    html_show_sourcelink: false  # Hide "View Source" link
+    html_show_sphinx: false  # Hide "Powered by Sphinx" credit
+    numfig_format:
+      section: "%s"
+      figure: "Figure %s"
+      table: "Table %s"
+      code-block: "Listing %s"
+    # myst_substitutions:
+    #   images_path: ../../data/img  # Uncomment to define a global substitution in md (with {{images_path}})
+  extra_extensions : [sphinx_design]  # List of extra Sphinx extensions
+  # extra_extensions : [sphinx_exercise, sphinx_design]  # Example including exercise extension
+
+# Extended HTML / MyST settings
+parse:
+  myst_enable_extensions:
+    - amsmath  # Enable AMS math syntax
+    - colon_fence  # Enable colon-fenced blocks for directives
+    - html_admonition  # Enable HTML-style admonitions
+    - html_image  # Enable HTML image syntax
+    - dollarmath  # Enable $...$ and $$...$$ math
+    - linkify  # Auto-detect URLs
+    - substitution  # Enable text substitutions
+    - tasklist  # Enable GitHub-style task lists
+    - deflist  # Enable definition lists
+  myst_url_schemes: [mailto, http, https]  # Recognize these URL schemes as external
+  myst_dmath_double_inline: true  # Allow display math ($$...$$) within inline context

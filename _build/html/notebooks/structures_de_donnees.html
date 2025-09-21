@@ -1,0 +1,1028 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Structures de données &#8212; jupyterbook with numbered equations</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a9041a22" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/structures_de_donnees';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="2. Boucles" href="boucles.html" />
+    <link rel="prev" title="Présentation" href="../root-presentation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../root-presentation.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">jupyterbook with numbered equations</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../root-presentation.html">
+                    Présentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Structures de données <br/></a></li>
+<li class="toctree-l1"><a class="reference internal" href="boucles.html">2. Boucles</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/benjamingosselincliche/sciencesdelanature-garneau-catalogue-jupyter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Dépôt source"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/structures_de_donnees.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Structures de données <br></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-listes">1.1. Les listes  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-tuples">1.2. Les tuples  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-dictionnaires">1.3. Les dictionnaires  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-ensembles">1.4. Les ensembles  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-tableaux">1.5. Les tableaux  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-dataframes">1.6. Les dataframes <br/></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="structures-de-donnees">
+<h1><span class="section-number">1. </span>Structures de données <br><a class="headerlink" href="#structures-de-donnees" title="Lien vers cette rubrique">#</a></h1>
+<hr class="docutils" />
+<br>
+<div style="text-align: center;">
+    <div style="display: inline-block; position: relative; width: 350px;">
+        <img src="../_static/img/bannerStructures.jpg" alt="Dessin" style="width: 100%;"/>
+        <p style="text-align: center; margin-top: 5px;">
+            <span style="font-style: italic; font-size: 16px;"> Stellar Data </span><br/>
+            <span style="font-style: italic; font-size: 12px;">Image générée par DALL·E 3, 2024 </span>
+        </p>
+    </div>
+</div><!-- ---
+## Objectifs:
+- Utiliser les `listes`
+- Utiliser les `tuples`
+- Utiliser les `dictionnaires`
+- Utiliser les `ensembles`
+- Utiliser les `tableaux`
+- Utiliser les `dataframes`    <br>
+Et ce, afin de manipuler les données de manière efficace dans un programme. --><hr class="docutils" />
+<section id="les-listes">
+<h2><span class="section-number">1.1. </span>Les listes  <br><a class="headerlink" href="#les-listes" title="Lien vers cette rubrique">#</a></h2>
+<p>Une liste est une collection d’éléments ordonnée et modifiable.
+La syntaxe pour créer une liste est d’utiliser des crochets <code class="docutils literal notranslate"><span class="pre">[]</span></code> et séparer les éléments par des virgules <code class="docutils literal notranslate"><span class="pre">,</span></code>.<br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pomme&quot;</span><span class="p">,</span> <span class="s2">&quot;banane&quot;</span><span class="p">,</span> <span class="s2">&quot;fraise&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Elle est très <strong>flexible</strong> et peut contenir des éléments de différents types.<br>
+Elle est <strong>modifiable</strong>, c’est-à-dire que vous pouvez y changer, ajouter et supprimer des éléments.<br>
+Elle est <strong>indexée</strong>, c’est-à-dire que vous pouvez accéder à n’importe quel élément de la liste en utilisant son index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;une liste des planètes du système solaire</span>
+<span class="n">planetes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mercure&quot;</span><span class="p">,</span> <span class="s2">&quot;Vénus&quot;</span><span class="p">,</span> <span class="s2">&quot;Terre&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturne&quot;</span><span class="p">,</span> <span class="s2">&quot;Uranus&quot;</span><span class="p">,</span> <span class="s2">&quot;Neptune&quot;</span><span class="p">]</span>
+
+<span class="c1"># Affichage de la liste des planètes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planètes du système solaire :&quot;</span><span class="p">,</span> <span class="n">planetes</span><span class="p">)</span>
+
+<span class="c1"># Accès à un élément spécifique de la liste (par exemple, la deuxième planète)</span>
+<span class="c1"># Rappel : comme dans la pluspart des structures de données, le premier élément est à l&#39;index 0</span>
+<span class="n">deuxieme_planete</span> <span class="o">=</span> <span class="n">planetes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La deuxième planète est :&quot;</span><span class="p">,</span> <span class="n">deuxieme_planete</span><span class="p">)</span>
+
+<span class="c1"># Ajout d&#39;une nouvelle (ancienne) planète à la fin de la liste</span>
+<span class="n">planetes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Pluton&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de la liste mise à jour</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planètes du système solaire (avec Pluton) :&quot;</span><span class="p">,</span> <span class="n">planetes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Planètes du système solaire : [&#39;Mercure&#39;, &#39;Vénus&#39;, &#39;Terre&#39;, &#39;Mars&#39;, &#39;Jupiter&#39;, &#39;Saturne&#39;, &#39;Uranus&#39;, &#39;Neptune&#39;]
+La deuxième planète est : Vénus
+Planètes du système solaire (avec Pluton) : [&#39;Mercure&#39;, &#39;Vénus&#39;, &#39;Terre&#39;, &#39;Mars&#39;, &#39;Jupiter&#39;, &#39;Saturne&#39;, &#39;Uranus&#39;, &#39;Neptune&#39;, &#39;Pluton&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="les-tuples">
+<h2><span class="section-number">1.2. </span>Les tuples  <br><a class="headerlink" href="#les-tuples" title="Lien vers cette rubrique">#</a></h2>
+<p>Un tuple est une collection d’éléments ordonnée et <strong>non modifiable</strong>.
+La syntaxe pour créer un tuple est d’utiliser des parenthèses <code class="docutils literal notranslate"><span class="pre">()</span></code> et séparer les éléments par des virgules <code class="docutils literal notranslate"><span class="pre">,</span></code>.<br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;pomme&quot;</span><span class="p">,</span> <span class="s2">&quot;banane&quot;</span><span class="p">,</span> <span class="s2">&quot;fraise&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Elle est très <strong>flexible</strong> et peut contenir des éléments de différents types.<br>
+Elle est <strong>non modifiable</strong>, c’est-à-dire que vous ne pouvez pas y changer, ajouter ou supprimer des éléments.<br>
+Elle est <strong>indexée</strong>, c’est-à-dire que vous pouvez accéder à n’importe quel élément du tuple en utilisant son index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;un tuple représentant les caractéristiques de l&#39;étoile Bételgeuse</span>
+<span class="n">etoile</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Bételgeuse&quot;</span><span class="p">,</span> <span class="s2">&quot;Rouge&quot;</span><span class="p">,</span> <span class="mi">643</span><span class="p">,</span> <span class="mi">1400</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Affichage des informations sur l&#39;étoile</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nom de l&#39;étoile :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Couleur de l&#39;étoile :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance de l&#39;étoile à la Terre (en années-lumière) :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masse de l&#39;étoile (en fois la masse du Soleil) :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Est-ce que l&#39;étoile est une supergéante ?&quot;</span><span class="p">,</span> <span class="s2">&quot;Oui&quot;</span> <span class="k">if</span> <span class="n">etoile</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;Non&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nom de l&#39;étoile : Bételgeuse
+Couleur de l&#39;étoile : Rouge
+Distance de l&#39;étoile à la Terre (en années-lumière) : 643
+Masse de l&#39;étoile (en fois la masse du Soleil) : 1400
+Est-ce que l&#39;étoile est une supergéante ? Oui
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="les-dictionnaires">
+<h2><span class="section-number">1.3. </span>Les dictionnaires  <br><a class="headerlink" href="#les-dictionnaires" title="Lien vers cette rubrique">#</a></h2>
+<p>Un dictionnaire est une collection d’éléments <strong>non ordonnée</strong>, <strong>modifiable</strong> et <strong>indexée</strong>.</p>
+<p>La syntaxe pour créer un dictionnaire est d’utiliser des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code> et séparer les éléments par des virgules <code class="docutils literal notranslate"><span class="pre">,</span></code>.<br>
+Les éléments d’un dictionnaire sont des <strong>paires clé-valeur</strong>, où chaque clé est unique.<br>
+<em>Note : les clés sont placées avant les valeurs, séparées par deux-points <code class="docutils literal notranslate"><span class="pre">:</span></code></em><br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dictionnaire</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;ville&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Elle est très <strong>flexible</strong> et peut contenir des éléments de différents types.<br>
+Elle est <strong>modifiable</strong>, c’est-à-dire que vous pouvez y changer, ajouter et supprimer des éléments.<br>
+Elle est <strong>indexée</strong>, c’est-à-dire que vous pouvez accéder à n’importe quel élément du dictionnaire en utilisant sa clé.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;un dictionnaire représentant les caractéristiques de l&#39;étoile Bételgeuse</span>
+<span class="n">etoile</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Bételgeuse&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;couleur&quot;</span><span class="p">:</span> <span class="s2">&quot;Rouge&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="mi">643</span><span class="p">,</span>
+    <span class="s2">&quot;masse&quot;</span><span class="p">:</span> <span class="mi">1400</span><span class="p">,</span>
+    <span class="s2">&quot;supergeante&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+<span class="c1"># Affichage des informations sur l&#39;étoile</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nom de l&#39;étoile :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Couleur de l&#39;étoile :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="s2">&quot;couleur&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance de l&#39;étoile à la Terre (en années-lumière) :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masse de l&#39;étoile (en fois la masse du Soleil) :&quot;</span><span class="p">,</span> <span class="n">etoile</span><span class="p">[</span><span class="s2">&quot;masse&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Est-ce que l&#39;étoile est une supergéante ?&quot;</span><span class="p">,</span> <span class="s2">&quot;Oui&quot;</span> <span class="k">if</span> <span class="n">etoile</span><span class="p">[</span><span class="s2">&quot;supergeante&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;Non&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nom de l&#39;étoile : Bételgeuse
+Couleur de l&#39;étoile : Rouge
+Distance de l&#39;étoile à la Terre (en années-lumière) : 643
+Masse de l&#39;étoile (en fois la masse du Soleil) : 1400
+Est-ce que l&#39;étoile est une supergéante ? Oui
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="les-ensembles">
+<h2><span class="section-number">1.4. </span>Les ensembles  <br><a class="headerlink" href="#les-ensembles" title="Lien vers cette rubrique">#</a></h2>
+<p>Un ensemble est une collection d’éléments <strong>non ordonnée</strong> et <strong>non indexée</strong>. <br>
+Les éléments d’un ensemble sont <strong>uniques</strong> et <strong>non modifiables</strong> (mais vous pouvez ajouter ou supprimer des éléments).<br>
+La syntaxe pour créer un ensemble est d’utiliser des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code> et séparer les éléments par des virgules <code class="docutils literal notranslate"><span class="pre">,</span></code>.<br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_ensemble</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;pomme&quot;</span><span class="p">,</span> <span class="s2">&quot;banane&quot;</span><span class="p">,</span> <span class="s2">&quot;fraise&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Elle peut contenir des éléments de différents types.<br>
+Elle est <strong>modifiable</strong>, c’est-à-dire que vous pouvez y ajouter ou supprimer des éléments.<br>
+<em>Attention : les éléments d’un ensemble ne sont pas modifiables.</em><br>
+Elle est <strong>non indexée</strong>, c’est-à-dire que vous ne pouvez pas accéder à un élément spécifique de l’ensemble directement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création d&#39;un ensemble de types d&#39;étoiles observables dans une région du ciel</span>
+<span class="n">types_etoiles_region</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Naine jaune&quot;</span><span class="p">,</span> <span class="s2">&quot;Naine blanche&quot;</span><span class="p">,</span> <span class="s2">&quot;Géante rouge&quot;</span><span class="p">,</span> <span class="s2">&quot;Étoile à neutrons&quot;</span><span class="p">}</span>
+
+<span class="c1"># Affichage des types d&#39;étoiles observables dans la région du ciel</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Types d&#39;étoiles observables dans la région du ciel :&quot;</span><span class="p">,</span> <span class="n">types_etoiles_region</span><span class="p">)</span>
+
+<span class="c1"># Ajout d&#39;un nouveau type d&#39;étoile à l&#39;ensemble (par exemple, une supergéante)</span>
+<span class="n">types_etoiles_region</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Supergéante&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vérification de la présence d&#39;un type d&#39;étoile spécifique dans l&#39;ensemble (par exemple, une naine rouge)</span>
+<span class="k">if</span> <span class="s2">&quot;Naine rouge&quot;</span> <span class="ow">in</span> <span class="n">types_etoiles_region</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Les naines rouges sont présentes dans la région du ciel.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Les naines rouges ne sont pas présentes dans la région du ciel.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Suppression d&#39;un type d&#39;étoile de l&#39;ensemble (par exemple, une étoile à neutrons)</span>
+<span class="n">types_etoiles_region</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;Étoile à neutrons&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de l&#39;ensemble mis à jour de types d&#39;étoiles observables dans la région du ciel</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Types d&#39;étoiles observables dans la région du ciel (avec supergéante et sans étoile à neutrons) :&quot;</span><span class="p">,</span> <span class="n">types_etoiles_region</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Types d&#39;étoiles observables dans la région du ciel : {&#39;Géante rouge&#39;, &#39;Naine jaune&#39;, &#39;Naine blanche&#39;, &#39;Étoile à neutrons&#39;}
+Les naines rouges ne sont pas présentes dans la région du ciel.
+Types d&#39;étoiles observables dans la région du ciel (avec supergéante et sans étoile à neutrons) : {&#39;Naine jaune&#39;, &#39;Supergéante&#39;, &#39;Naine blanche&#39;, &#39;Géante rouge&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="les-tableaux">
+<h2><span class="section-number">1.5. </span>Les tableaux  <br><a class="headerlink" href="#les-tableaux" title="Lien vers cette rubrique">#</a></h2>
+<p>Les tableaux ne sont pas nativement supportés par Python, mais vous pouvez utiliser des bibliothèques comme <code class="docutils literal notranslate"><span class="pre">numpy</span></code> pour les manipuler.<br>
+La majorité des langages de programmation supportent les tableaux et on les utilise réguliérement dans des contextes de calculs scientifiques.<br>
+Un tableau est une structure de données qui contient une collection <strong>d’éléments de même type</strong>.<br>
+On ne peut donc pas mélanger des types de données dans un tableau.<br>
+Les éléments d’un tableau sont <strong>indexés</strong> et <strong>modifiables</strong>.<br>
+Un tableau a normalement un taille fixe, mais dans certaines bibliothèques, comme <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, on peut créer des tableaux de taille dynamique.<br>
+<em>Note : L’indexation des tableaux commence à 0</em>  <br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>    <span class="c1"># Importation de la bibliothèque numpy </span>
+<span class="n">mon_tableau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>On peut visualiser le tableau précédent comme une liste ordonnée de nombres :<br></p>
+<table style="border: 1px solid black;">
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+    </tr>
+</table><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importation de la bibliothèque numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Création d&#39;un tableau unidimensionnel des distances des étoiles à la Terre en années-lumière</span>
+<span class="n">distances_etoiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.24</span><span class="p">,</span> <span class="mf">39.9</span><span class="p">,</span> <span class="mf">25.3</span><span class="p">,</span> <span class="mf">94.4</span><span class="p">,</span> <span class="mf">4.37</span><span class="p">,</span> <span class="mi">880</span><span class="p">])</span>
+
+<span class="c1"># Affichage du tableau</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distances des étoiles à la Terre en années-lumière :&quot;</span><span class="p">,</span> <span class="n">distances_etoiles</span><span class="p">)</span>
+
+<span class="c1"># Accès à un élément spécifique du tableau (par exemple, la distance de la première étoile)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance de la première étoile à la Terre en années-lumière :&quot;</span><span class="p">,</span> <span class="n">distances_etoiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Calcul de la distance maximale</span>
+<span class="n">distance_maximale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distances_etoiles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance maximale à la Terre en années-lumière :&quot;</span><span class="p">,</span> <span class="n">distance_maximale</span><span class="p">)</span>
+
+<span class="c1"># Calcul de la distance minimale</span>
+<span class="n">distance_minimale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">distances_etoiles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance minimale à la Terre en années-lumière :&quot;</span><span class="p">,</span> <span class="n">distance_minimale</span><span class="p">)</span>
+
+<span class="c1"># Calcul de la moyenne des distances</span>
+<span class="n">distance_moyenne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">distances_etoiles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance moyenne à la Terre en années-lumière :&quot;</span><span class="p">,</span> <span class="n">distance_moyenne</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distances des étoiles à la Terre en années-lumière : [  4.24  39.9   25.3   94.4    4.37 880.  ]
+Distance de la première étoile à la Terre en années-lumière : 4.24
+Distance maximale à la Terre en années-lumière : 880.0
+Distance minimale à la Terre en années-lumière : 4.24
+Distance moyenne à la Terre en années-lumière : 174.70166666666668
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="les-dataframes">
+<h2><span class="section-number">1.6. </span>Les dataframes <br><a class="headerlink" href="#les-dataframes" title="Lien vers cette rubrique">#</a></h2>
+<p>Les <strong>dataframes</strong> sont des structures de données bidimensionnelles, similaires à des tableaux, mais avec des fonctionnalités supplémentaires vous permettant de manipuler et d’analyser les données plus facilement.<br>
+Cette structure de données est particulièrement utile pour représenter et manipuler des ensembles de données structurées où les lignes et les colonnes sont étiquetées.<br>
+Ils ne sont pas nativement supportés par Python, mais vous pouvez utiliser des bibliothèques comme <code class="docutils literal notranslate"><span class="pre">pandas</span></code> pour les utiliser.<br>
+Les dataframes sont très utilisés dans le domaine de la science des données et de l’analyse de données.<br>
+Ils sont très flexibles et peuvent contenir des éléments de différents types.<br>
+Ils sont <strong>indexés</strong> et <strong>modifiables</strong>.<br>
+Exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>    <span class="c1"># Importation de la bibliothèque pandas</span>
+<span class="n">mon_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+    <span class="s2">&quot;ville&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="s2">&quot;Chicago&quot;</span><span class="p">]</span>
+
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>On peut voir le dataframe précédent comme un tableau avec des colonnes nommées :<br></p>
+<table style="border: 1px solid black;">
+    <tr>
+        <th>nom</th>
+        <th>age</th>
+        <th>ville</th>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>30</td>
+        <td>New York</td>
+    </tr>
+    <tr>
+        <td>Alice</td>
+        <td>25</td>
+        <td>Los Angeles</td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>35</td>
+        <td>Chicago</td>
+    </tr>
+</table><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Création d&#39;un DataFrame pour stocker des informations sur des planètes</span>
+<span class="n">donnees_planetes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Nom&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Mercure&quot;</span><span class="p">,</span> <span class="s2">&quot;Vénus&quot;</span><span class="p">,</span> <span class="s2">&quot;Terre&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturne&quot;</span><span class="p">,</span> <span class="s2">&quot;Uranus&quot;</span><span class="p">,</span> <span class="s2">&quot;Neptune&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Diamètre (km)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4879</span><span class="p">,</span> <span class="mi">12104</span><span class="p">,</span> <span class="mi">12742</span><span class="p">,</span> <span class="mi">6779</span><span class="p">,</span> <span class="mi">139820</span><span class="p">,</span> <span class="mi">116460</span><span class="p">,</span> <span class="mi">50724</span><span class="p">,</span> <span class="mi">49244</span><span class="p">],</span>
+    <span class="s2">&quot;Masse (10^24 kg)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.330</span><span class="p">,</span> <span class="mf">4.87</span><span class="p">,</span> <span class="mf">5.97</span><span class="p">,</span> <span class="mf">0.642</span><span class="p">,</span> <span class="mi">1898</span><span class="p">,</span> <span class="mi">568</span><span class="p">,</span> <span class="mf">86.8</span><span class="p">,</span> <span class="mi">102</span><span class="p">],</span>
+    <span class="s2">&quot;Distance moyenne au Soleil (millions de km)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">57.9</span><span class="p">,</span> <span class="mf">108.2</span><span class="p">,</span> <span class="mf">149.6</span><span class="p">,</span> <span class="mf">227.9</span><span class="p">,</span> <span class="mf">778.6</span><span class="p">,</span> <span class="mf">1433.5</span><span class="p">,</span> <span class="mf">2872.5</span><span class="p">,</span> <span class="mf">4495.1</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Affichage des données des planètes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Informations sur les planètes :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">donnees_planetes</span><span class="p">)</span>
+
+<span class="c1"># Affichage des informations sur la planète Mars</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informations sur la planète Mars :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">donnees_planetes</span><span class="p">[</span><span class="n">donnees_planetes</span><span class="p">[</span><span class="s2">&quot;Nom&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Mars&quot;</span><span class="p">])</span>
+
+<span class="c1"># Calcul de statistiques sur les données</span>
+<span class="n">statistiques</span> <span class="o">=</span> <span class="n">donnees_planetes</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Statistiques sur les données des planètes :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">statistiques</span><span class="p">)</span>
+
+<span class="c1"># Tri des planètes par diamètre décroissant</span>
+<span class="n">planetes_triees_par_diametre</span> <span class="o">=</span> <span class="n">donnees_planetes</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Diamètre (km)&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Planètes triées par diamètre décroissant :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">planetes_triees_par_diametre</span><span class="p">)</span>
+
+<span class="c1"># Sélection des planètes dont le diamètre est supérieur à 10 000 km</span>
+<span class="n">planetes_grandes</span> <span class="o">=</span> <span class="n">donnees_planetes</span><span class="p">[</span><span class="n">donnees_planetes</span><span class="p">[</span><span class="s2">&quot;Diamètre (km)&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Planètes dont le diamètre est supérieur à 10 000 km :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">planetes_grandes</span><span class="p">)</span>
+
+<span class="c1"># Ajout d&#39;une nouvelle colonne pour calculer la densité des planètes (masse / volume)</span>
+<span class="n">donnees_planetes</span><span class="p">[</span><span class="s2">&quot;Densité (g/cm^3)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">donnees_planetes</span><span class="p">[</span><span class="s2">&quot;Masse (10^24 kg)&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">((</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.14159265359</span> <span class="o">*</span> <span class="p">((</span><span class="n">donnees_planetes</span><span class="p">[</span><span class="s2">&quot;Diamètre (km)&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informations sur les planètes avec la nouvelle colonne de densité :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">donnees_planetes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Informations sur les planètes :
+        Nom  Diamètre (km)  Masse (10^24 kg)  \
+0  Mercure           4879             0.330   
+1    Vénus          12104             4.870   
+2    Terre          12742             5.970   
+3     Mars           6779             0.642   
+4  Jupiter         139820          1898.000   
+5  Saturne         116460           568.000   
+6   Uranus          50724            86.800   
+7  Neptune          49244           102.000   
+
+   Distance moyenne au Soleil (millions de km)  
+0                                         57.9  
+1                                        108.2  
+2                                        149.6  
+3                                        227.9  
+4                                        778.6  
+5                                       1433.5  
+6                                       2872.5  
+7                                       4495.1  
+
+Informations sur la planète Mars :
+     Nom  Diamètre (km)  Masse (10^24 kg)  \
+3  Mars           6779             0.642   
+
+   Distance moyenne au Soleil (millions de km)  
+3                                        227.9  
+
+Statistiques sur les données des planètes :
+        Diamètre (km)  Masse (10^24 kg)  \
+count       8.000000          8.000000   
+mean    49094.000000        333.326500   
+std     52382.273291        660.538057   
+min      4879.000000          0.330000   
+25%     10772.750000          3.813000   
+50%     30993.000000         46.385000   
+75%     67158.000000        218.500000   
+max    139820.000000       1898.000000   
+
+       Distance moyenne au Soleil (millions de km)  
+count                                     8.000000  
+mean                                   1265.412500  
+std                                    1621.178951  
+min                                      57.900000  
+25%                                     139.250000  
+50%                                     503.250000  
+75%                                    1793.250000  
+max                                    4495.100000  
+
+Planètes triées par diamètre décroissant :
+        Nom  Diamètre (km)  Masse (10^24 kg)  \
+4  Jupiter         139820          1898.000   
+5  Saturne         116460           568.000   
+6   Uranus          50724            86.800   
+7  Neptune          49244           102.000   
+2    Terre          12742             5.970   
+1    Vénus          12104             4.870   
+3     Mars           6779             0.642   
+0  Mercure           4879             0.330   
+
+   Distance moyenne au Soleil (millions de km)  
+4                                        778.6  
+5                                       1433.5  
+6                                       2872.5  
+7                                       4495.1  
+2                                        149.6  
+1                                        108.2  
+3                                        227.9  
+0                                         57.9  
+
+Planètes dont le diamètre est supérieur à 10 000 km :
+        Nom  Diamètre (km)  Masse (10^24 kg)  \
+1    Vénus          12104              4.87   
+2    Terre          12742              5.97   
+4  Jupiter         139820           1898.00   
+5  Saturne         116460            568.00   
+6   Uranus          50724             86.80   
+7  Neptune          49244            102.00   
+
+   Distance moyenne au Soleil (millions de km)  
+1                                        108.2  
+2                                        149.6  
+4                                        778.6  
+5                                       1433.5  
+6                                       2872.5  
+7                                       4495.1  
+
+Informations sur les planètes avec la nouvelle colonne de densité :
+        Nom  Diamètre (km)  Masse (10^24 kg)  \
+0  Mercure           4879             0.330   
+1    Vénus          12104             4.870   
+2    Terre          12742             5.970   
+3     Mars           6779             0.642   
+4  Jupiter         139820          1898.000   
+5  Saturne         116460           568.000   
+6   Uranus          50724            86.800   
+7  Neptune          49244           102.000   
+
+   Distance moyenne au Soleil (millions de km)  Densité (g/cm^3)  
+0                                         57.9      5.426538e-12  
+1                                        108.2      5.244977e-12  
+2                                        149.6      5.511412e-12  
+3                                        227.9      3.935859e-12  
+4                                        778.6      1.326141e-12  
+5                                       1433.5      6.867827e-13  
+6                                       2872.5      1.270225e-12  
+7                                       4495.1      1.631329e-12  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+
+ 
+<span class="c1"># Chargement des données sur les galaxies depuis un fichier CSV</span>
+<span class="n">donnees_etoiles</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/hygdata_v37_propre.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage des planêtes nommées (proper) et de leur distance (dist) à la Terre</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">donnees_etoiles</span><span class="p">[[</span><span class="s1">&#39;proper&#39;</span><span class="p">,</span><span class="s1">&#39;dist&#39;</span><span class="p">]])</span>
+
+<span class="c1">#Tri des étoiles par distance croissante</span>
+<span class="n">etoiles_triees_par_distance</span> <span class="o">=</span> <span class="n">donnees_etoiles</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;dist&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Affichage des 10 étoiles les plus proches de la Terre</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">10 étoiles les plus proches de la Terre :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">etoiles_triees_par_distance</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)[[</span><span class="s1">&#39;proper&#39;</span><span class="p">,</span><span class="s1">&#39;dist&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Création de la figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="c1"># Sélection des 10 étoiles les plus proches du soleil</span>
+<span class="n">etoiles_plus_proches</span> <span class="o">=</span> <span class="n">etoiles_triees_par_distance</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="c1"># Affichage du soleil dans le graphique</span>
+<span class="n">leSoleil</span> <span class="o">=</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;proper&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sol&#39;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">leSoleil</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">leSoleil</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">leSoleil</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Retirer le soleil de la liste</span>
+<span class="n">etoiles_plus_proches</span> <span class="o">=</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;proper&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Sol&#39;</span><span class="p">]</span>
+
+<span class="c1"># Affichage des étoiles dans l&#39;espace 3D</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Affichage des noms des étoiles et des lignes verticales</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;proper&#39;</span><span class="p">]):</span>
+    <span class="c1"># Ajout d&#39;un décalage pour les 3 premières étoiles pour éviter les superpositions des étiquettes</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span> 
+        <span class="n">offset</span> <span class="o">=</span> <span class="mf">0.3</span><span class="o">*</span><span class="n">i</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">offset</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> 
+            <span class="p">[</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> 
+            <span class="p">[</span><span class="n">etoiles_plus_proches</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> 
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configuration des étiquettes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Les 10 étoiles les plus proches du soleil&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>  <span class="c1"># Titre du diagramme</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (parsecs)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Nom de l&#39;axe X avec l&#39;unité</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (parsecs)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Nom de l&#39;axe Y avec l&#39;unité</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;Z (parsecs)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Nom de l&#39;axe Z avec l&#39;unité</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Modifier les limites X selon vos besoins</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Modifier les limites Y selon vos besoins</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Modifier les limites Z selon vos besoins</span>
+
+<span class="c1"># Changer l&#39;orientation de la boîte</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># Par exemple, vous pouvez changer les angles selon vos préférences</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              proper      dist
+0                Sol    0.0000
+1          Alpheratz   29.7442
+2               Caph   16.7842
+3            Algenib  120.0480
+4     Groombridge 34    3.5873
+..               ...       ...
+362  Alula Australis   10.4167
+363         Graffias   24.3309
+364          Alrakis   23.2558
+365           EZ Aqr    3.3979
+366         Ross 248    3.1686
+
+[367 rows x 2 columns]
+
+10 étoiles les plus proches de la Terre :
+                proper    dist
+0                 Sol  0.0000
+215  Proxima Centauri  1.2959
+218   Rigil Kentaurus  1.3248
+217           Toliman  1.3248
+274    Barnard&#39;s Star  1.8238
+361          Wolf 359  2.3906
+165     Lalande 21185  2.5469
+108            Sirius  2.6371
+284          Ross 154  2.9698
+366          Ross 248  3.1686
+</pre></div>
+</div>
+<img alt="../_images/ed6f42eb8e30802eb091f79b070a3b2ec43cab9a336aa138416f5df3dec592bc.png" src="../_images/ed6f42eb8e30802eb091f79b070a3b2ec43cab9a336aa138416f5df3dec592bc.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../root-presentation.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Présentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="boucles.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Boucles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-listes">1.1. Les listes  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-tuples">1.2. Les tuples  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-dictionnaires">1.3. Les dictionnaires  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-ensembles">1.4. Les ensembles  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-tableaux">1.5. Les tableaux  <br/></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-dataframes">1.6. Les dataframes <br/></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

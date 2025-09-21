@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: root-presentation
+defaults:
+  titlesonly: True
+
+parts:
+- caption: 
+  numbered: 2
+  chapters:
+  - file: notebooks/structures_de_donnees
+  - file: notebooks/boucles
+
+
+# - caption: Part B
+#   numbered: 2
+#   chapters:
+#   - file: chapters/the-best-chapter
+
+# - caption: Appendix
+#   numbered: 2 
+#   chapters:
+#   - file: chapters/references

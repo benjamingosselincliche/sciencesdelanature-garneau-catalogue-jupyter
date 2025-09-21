@@ -1,0 +1,90 @@
+_static/custom.css
+
+/* Style pour les liens contenant les images */
+a.reference.internal.image-reference {
+    display: inline-block; /* Permet à la légende de s'ajuster à la largeur de l'image */
+}
+
+/* Style pour les images */
+a.reference.internal.image-reference img {
+    max-width: 100%;   /* Assure que l'image ne dépasse pas la largeur du lien parent */
+    /* height: 150px;     Hauteur fixe pour l'image */
+    display: block;    /* Assure que l'image se comporte comme un bloc */
+    margin: 0 auto;    /* Centre l'image horizontalement */
+}
+
+div.admonition.no-icon > .admonition-title::before {
+  content: none !important;
+}
+
+
+/* Style pour la légende */
+figcaption {
+    display: inline-block;   /* Assure que la légende s'ajuste à la largeur de l'image */
+    width: auto;            /* La largeur sera ajustée automatiquement */
+    max-width: 100%;        /* La largeur ne dépasse pas la largeur du conteneur parent */
+    text-align: center;     /* Centre le texte de la légende */
+    margin-top: 5px;        /* Espace au-dessus de la légende */
+    padding: 0 10px;        /* Padding horizontal */
+    box-sizing: border-box; /* Inclut padding et bordure dans la largeur totale */
+    overflow-wrap: break-word; /* Casse les mots longs pour éviter le débordement */
+}
+
+/* Style pour le numéro de légende */
+.caption-number {
+    font-weight: bold; /* Numéro en gras */
+}
+
+/* Style pour le texte de la légende */
+.caption-text {
+    display: block;   /* Assure que le texte occupe tout l'espace disponible */
+    margin-top: 5px;  /* Espace au-dessus du texte */
+    overflow-wrap: break-word; /* Casse les mots longs */
+}
+
+/* Style pour le lien de la légende */
+.headerlink {
+    display: none; /* Masquer le lien d'ancrage si non souhaité */
+}
+
+
+.hidden-title .admonition-title {
+    display: none;
+}
+
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* Gestion des sauts de page */
+.page-break {
+    page-break-before: always;
+}
+
+/* Ajoute de l’espace avant le footer prev/next */
+.prev-next-footer {
+  margin-top: 2em;   /* espace vertical */
+  padding-top: 1em;  /* petit padding interne */
+  border-top: 1px solid #ddd; /* optionnel, juste pour séparer visuellement */
+}
+
+
+@media print {
+    /* Marges de page */
+    body {
+        margin: 1cm;
+    }
+
+    /* En-têtes de section */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        color: #333;
+    }
+
+ }  
+
